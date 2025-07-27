@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main # This is the branch Netlify will deploy from (use the default branch of your repository)
+
+media_folder: "static/uploads"  # Folder where images will be uploaded, relative to the root of the repository
+public_folder: "/uploads"  # The URL path that will be used to access media files
+
+collections:
+  - name: "services"
+    label: "Services"
+    folder: "content/services"  # Folder where service-related content will be stored
+    create: true  # Allows creating new entries from the CMS
+    fields:
+      - { label: "Service Title", name: "title", widget: "string" }
+      - { label: "Service Description", name: "description", widget: "text" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"  # Folder for storing project entries
+    create: true
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Project Description", name: "description", widget: "text" }
+      - { label: "Project Image", name: "image", widget: "image" }
+      - { label: "Project URL", name: "url", widget: "string" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"  # Folder for storing testimonial entries
+    create: true
+    fields:
+      - { label: "Client Name", name: "client_name", widget: "string" }
+      - { label: "Testimonial", name: "testimonial", widget: "text" }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"  # Folder for storing pages like the homepage, contact, etc.
+    create: true
+    fields:
+      - { label: "Page Title", name: "title", widget: "string" }
+      - { label: "Page Content", name: "content", widget: "markdown" }

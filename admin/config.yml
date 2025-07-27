@@ -1,23 +1,23 @@
 backend:
   name: git-gateway
-  branch: main # This is the branch Netlify will deploy from (use the default branch of your repository)
+  branch: main  # The default branch for your GitHub repository
 
 media_folder: "static/uploads"  # Folder where images will be uploaded, relative to the root of the repository
-public_folder: "/uploads"  # The URL path that will be used to access media files
+public_folder: "/uploads"  # The public URL path for media files
 
 collections:
   - name: "services"
     label: "Services"
     folder: "content/services"  # Folder where service-related content will be stored
-    create: true  # Allows creating new entries from the CMS
+    create: true  # Allow creating new entries from the CMS
     fields:
       - { label: "Service Title", name: "title", widget: "string" }
       - { label: "Service Description", name: "description", widget: "text" }
 
   - name: "projects"
     label: "Projects"
-    folder: "content/projects"  # Folder for storing project entries
-    create: true
+    folder: "content/projects"  # Folder where project-related content will be stored
+    create: true  # Allow creating new entries
     fields:
       - { label: "Project Title", name: "title", widget: "string" }
       - { label: "Project Description", name: "description", widget: "text" }
@@ -26,16 +26,16 @@ collections:
 
   - name: "testimonials"
     label: "Testimonials"
-    folder: "content/testimonials"  # Folder for storing testimonial entries
-    create: true
+    folder: "content/testimonials"  # Folder for storing testimonials
+    create: true  # Allow creating new entries
     fields:
       - { label: "Client Name", name: "client_name", widget: "string" }
       - { label: "Testimonial", name: "testimonial", widget: "text" }
 
   - name: "pages"
     label: "Pages"
-    folder: "content/pages"  # Folder for storing pages like the homepage, contact, etc.
-    create: true
+    folder: "content/pages"  # Folder for storing pages like homepage, contact, etc.
+    create: true  # Allow creating new entries
     fields:
       - { label: "Page Title", name: "title", widget: "string" }
       - { label: "Page Content", name: "content", widget: "markdown" }

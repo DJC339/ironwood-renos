@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"        # where uploaded images go in the repo
-public_folder: "/images"      # how the site references them
+media_folder: "images"
+public_folder: "/images"
 
 collections:
   - name: "site"
@@ -16,31 +16,3 @@ collections:
           - { label: "Hero Title", name: "hero_title", widget: "string" }
           - { label: "Hero Tagline", name: "hero_tagline", widget: "string" }
           - { label: "CTA Label", name: "cta_label", widget: "string", default: "Request a Quote" }
-
-          - label: "Services"
-            name: "services"
-            widget: "list"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-
-          - label: "Projects"
-            name: "projects"
-            widget: "list"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "URL (optional)", name: "url", widget: "string", required: false }
-
-          - label: "Testimonials"
-            name: "testimonials"
-            widget: "list"
-            fields:
-              - { label: "Client Name", name: "client_name", widget: "string" }
-              - { label: "Testimonial", name: "testimonial", widget: "text" }
-
-          - label: "Footer Note"
-            name: "footer_note"
-            widget: "string"
-            default: "© 2025 Ironwood Renos. Portfolio project by Code Forged Digital."

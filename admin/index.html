@@ -2,16 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ironwood Renos Admin</title>
-  <link rel="stylesheet" href="/css/style.css" /> <!-- Absolute path to the CSS file -->
-  <script src="https://unpkg.com/netlify-cms@2.13.0/dist/netlify-cms.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Netlify Identity for login -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Decap CMS (maintained fork of Netlify CMS) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
+  <h1 style="text-align:center;margin:1rem 0;">Content Manager</h1>
 
-  <h1>Content Manager</h1>
-
-  <!-- Optional: Add admin navigation or additional instructions here -->
-  
+  <script>
+    // If you also add the identity widget on your public site, this redirects after login.
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,110 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ironwood Renos</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="https://unpkg.com/netlify-cms@2.13.0/dist/netlify-cms.js"></script>
-
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      
-      <!-- Right: Navigation -->
-      <nav>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Ironwood Renos</h1>
-      <p>Quality Renovations Built to Last</p>
-      <a href="#contact" class="btn-primary">Request a Quote</a>
+      <h1 id="hero-title">Ironwood Renos</h1>
+      <p id="hero-tagline">Quality Renovations Built to Last</p>
+      <a href="#contact" class="btn-primary" id="hero-cta">Request a Quote</a>
     </div>
   </section>
 
-  <!-- Portfolio Page notification -->
-  <p class="portfolio-note">
-    This portfolio site is a single page example created by <strong>Code Forged Digital</strong>.
-  </p>
-
   <!-- Services Section -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      <div class="service-list">
-        <div class="service-card">
-          <h3>Kitchen Renovations</h3>
-          <p>Modern designs with expert craftsmanship and timeless finishes.</p>
-        </div>
-        <div class="service-card">
-          <h3>Bathroom Upgrades</h3>
-          <p>Efficient, stylish, and functional renovations tailored to your needs.</p>
-        </div>
-        <div class="service-card">
-          <h3>Basement Finishing</h3>
-          <p>Maximize your space with bright, beautiful basement transformations.</p>
-        </div>
-        <div class="service-card">
-          <h3>Home Additions</h3>
-          <p>Expand your home with quality-built additions that blend seamlessly.</p>
-        </div>
-      </div>
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-list" id="services-list">
+      <!-- populated by JS -->
     </div>
   </section>
 
   <!-- Gallery Section -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="gallery-grid">
-        <img src="images/project1.jpg" alt="Modern kitchen renovation" />
-        <img src="images/project2.jpg" alt="Stylish bathroom upgrade" />
-        <img src="images/project3.jpg" alt="Finished basement project" />
-        <img src="images/project4.jpg" alt="Home extension project" />
-      </div>
+  <section class="gallery">
+    <h2>Featured Projects</h2>
+    <div class="gallery-grid" id="projects-grid">
+      <!-- populated by JS -->
     </div>
   </section>
 
   <!-- Testimonials Section -->
   <section class="testimonials">
-    <div class="container">
-      <h2 class="section-title">What Clients Say</h2>
-      <blockquote>
-        “Ironwood Renos transformed our space beyond expectations. Professional, reliable, and excellent craftsmanship!”
-      </blockquote>
-      <cite>— The Smith Family, Ottawa ON</cite>
+    <h2>What Clients Say</h2>
+    <div id="testimonials-wrap">
+      <!-- populated by JS -->
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact (display only, no functionality) -->
   <section class="contact" id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" disabled />
-        <input type="email" placeholder="Your Email" disabled />
-        <textarea placeholder="Tell us about your project..." disabled></textarea>
-        <button type="button" disabled>Send Message - disabled for demo</button>
-      </form>
-    </div>
+    <h2>Contact</h2>
+    <p style="text-align:center;color:#666;">Demo site — form intentionally disabled.</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Ironwood Renos. All rights reserved.</p>
+    <p id="footer-note">© 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
   </footer>
 
+  <!-- Minimal data loader -->
+  <script>
+    (async function () {
+      try {
+        const res = await fetch('content/site.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Failed to load site.json');
+        const data = await res.json();
+
+        // Hero
+        document.getElementById('hero-title').textContent = data.hero_title || '';
+        document.getElementById('hero-tagline').textContent = data.hero_tagline || '';
+        document.getElementById('hero-cta').textContent = data.cta_label || 'Request a Quote';
+
+        // Services
+        const servicesEl = document.getElementById('services-list');
+        servicesEl.innerHTML = '';
+        (data.services || []).forEach(svc => {
+          const card = document.createElement('div');
+          card.className = 'service-card';
+          card.innerHTML = `
+            <h3>${svc.title || ''}</h3>
+            <p>${svc.description || ''}</p>
+          `;
+          servicesEl.appendChild(card);
+        });
+
+        // Projects
+        const projectsEl = document.getElementById('projects-grid');
+        projectsEl.innerHTML = '';
+        (data.projects || []).forEach(prj => {
+          const img = document.createElement('img');
+          img.src = prj.image || '';
+          img.alt = prj.title || 'Project image';
+          projectsEl.appendChild(img);
+        });
+
+        // Testimonials
+        const tWrap = document.getElementById('testimonials-wrap');
+        tWrap.innerHTML = '';
+        (data.testimonials || []).forEach(t => {
+          const bq = document.createElement('blockquote');
+          bq.textContent = `“${t.testimonial || ''}”`;
+          const cite = document.createElement('cite');
+          cite.textContent = `— ${t.client_name || ''}`;
+          const container = document.createElement('div');
+          container.style.textAlign = 'center';
+          container.appendChild(bq);
+          container.appendChild(cite);
+          tWrap.appendChild(container);
+        });
+
+        // Footer note
+        document.getElementById('footer-note').textContent = data.footer_note || '';
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  </script>
 </body>
 </html>

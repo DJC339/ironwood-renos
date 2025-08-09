@@ -1,41 +1,46 @@
 backend:
   name: git-gateway
-  branch: main  # The default branch for your GitHub repository
+  branch: main
 
-media_folder: "static/uploads"  # Folder where images will be uploaded, relative to the root of the repository
-public_folder: "/uploads"  # The public URL path for media files
+media_folder: "images"        # where uploaded images go in the repo
+public_folder: "/images"      # how the site references them
 
 collections:
-  - name: "services"
-    label: "Services"
-    folder: "content/services"  # Folder where service-related content will be stored
-    create: true  # Allow creating new entries from the CMS
-    fields:
-      - { label: "Service Title", name: "title", widget: "string" }
-      - { label: "Service Description", name: "description", widget: "text" }
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "settings"
+        label: "Homepage Content"
+        file: "content/site.json"
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Tagline", name: "hero_tagline", widget: "string" }
+          - { label: "CTA Label", name: "cta_label", widget: "string", default: "Request a Quote" }
 
-  - name: "projects"
-    label: "Projects"
-    folder: "content/projects"  # Folder where project-related content will be stored
-    create: true  # Allow creating new entries
-    fields:
-      - { label: "Project Title", name: "title", widget: "string" }
-      - { label: "Project Description", name: "description", widget: "text" }
-      - { label: "Project Image", name: "image", widget: "image" }
-      - { label: "Project URL", name: "url", widget: "string" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
 
-  - name: "testimonials"
-    label: "Testimonials"
-    folder: "content/testimonials"  # Folder for storing testimonials
-    create: true  # Allow creating new entries
-    fields:
-      - { label: "Client Name", name: "client_name", widget: "string" }
-      - { label: "Testimonial", name: "testimonial", widget: "text" }
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "URL (optional)", name: "url", widget: "string", required: false }
 
-  - name: "pages"
-    label: "Pages"
-    folder: "content/pages"  # Folder for storing pages like homepage, contact, etc.
-    create: true  # Allow creating new entries
-    fields:
-      - { label: "Page Title", name: "title", widget: "string" }
-      - { label: "Page Content", name: "content", widget: "markdown" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Client Name", name: "client_name", widget: "string" }
+              - { label: "Testimonial", name: "testimonial", widget: "text" }
+
+          - label: "Footer Note"
+            name: "footer_note"
+            widget: "string"
+            default: "© 2025 Ironwood Renos. Portfolio project by Code Forged Digital."

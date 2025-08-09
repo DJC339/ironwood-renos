@@ -1,0 +1,21 @@
+{
+  "hero_title": "Ironwood Renos",
+  "hero_tagline": "Quality Renovations Built to Last",
+  "cta_label": "Request a Quote",
+  "services": [
+    { "title": "Kitchen Renovations", "description": "Modern designs with expert craftsmanship and timeless finishes." },
+    { "title": "Bathroom Upgrades", "description": "Efficient, stylish, and functional renovations tailored to your needs." },
+    { "title": "Basement Finishing", "description": "Bright, beautiful transformations that maximize your living space." },
+    { "title": "Home Additions", "description": "Seamless expansions that blend with your existing home." }
+  ],
+  "projects": [
+    { "title": "Pergola & Patio", "description": "Outdoor living upgrade with a custom pergola.", "image": "images/project1.jpg", "url": "" },
+    { "title": "Spa Bathroom", "description": "Clean lines, smart storage, and warm lighting.", "image": "images/project2.jpg", "url": "" },
+    { "title": "Family Kitchen", "description": "Open-concept layout with durable finishes.", "image": "images/project3.jpg", "url": "" },
+    { "title": "Basement Lounge", "description": "Multiuse space with media area and bar.", "image": "images/project4.jpg", "url": "" }
+  ],
+  "testimonials": [
+    { "client_name": "The Smith Family, Kingston ON", "testimonial": "Ironwood Renos transformed our space beyond expectations." }
+  ],
+  "footer_note": "© 2025 Ironwood Renos. Portfolio project by Code Forged Digital."
+}

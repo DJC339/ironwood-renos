@@ -40,3 +40,4 @@ This project is for demonstration purposes only. It can be customized and reused
 ## 🔗 Built by
 
 [Code Forged Digital](https://codeforgeddigital.ca)
+Updated 

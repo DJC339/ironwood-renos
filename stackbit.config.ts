@@ -1,6 +1,14 @@
 // @ts-nocheck
+// @ts-nocheck
 import { defineStackbitConfig } from "@stackbit/types";
-import { GitContentSource } from "@stackbit/cms-git";
+import * as GitCMS from "@stackbit/cms-git";
+
+// version-safe handle for GitContentSource across cms-git variants
+const GitContentSource =
+  (GitCMS as any).GitContentSource ||
+  (GitCMS as any).default?.GitContentSource ||
+  (GitCMS as any);
+
 
 export default defineStackbitConfig({
   stackbitVersion: "~0.6.0",

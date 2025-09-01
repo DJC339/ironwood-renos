@@ -1,22 +1,16 @@
 // @ts-nocheck
-// @ts-nocheck
 import { defineStackbitConfig } from "@stackbit/types";
-import * as GitCMS from "@stackbit/cms-git";
-
-// version-safe handle for GitContentSource across cms-git variants
-const GitContentSource =
-  (GitCMS as any).GitContentSource ||
-  (GitCMS as any).default?.GitContentSource ||
-  (GitCMS as any);
-
 
 export default defineStackbitConfig({
   stackbitVersion: "~0.6.0",
   nodeVersion: "18",
   ssgName: "custom",
-  postInstallCommand: "npm i --no-save @stackbit/types",
+
+  // No cms-git imports, no constructors
   contentSources: [
-    new GitContentSource({
+    {
+      name: "git",
+      type: "git",
       rootPath: __dirname,
       contentDirs: ["content"],
       models: [
@@ -51,7 +45,7 @@ export default defineStackbitConfig({
                   { name: "title", type: "string", label: "Title", required: true },
                   { name: "description", type: "string", label: "Description" },
                   { name: "image", type: "string", label: "Image Path (e.g., images/project1.jpg)" },
-                  { name: "url", type: "string", label: "Project URL", required: false }
+                  { name: "url", type: "string", label: "Project URL" }
                 ]
               }
             },
@@ -71,6 +65,6 @@ export default defineStackbitConfig({
           ]
         }
       ]
-    })
+    }
   ]
 });

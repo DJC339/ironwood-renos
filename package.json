@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/DJC339/ironwood-renos#readme",
   "devDependencies": {
-    "@stackbit/cms-git": "^0.0.14",
+    "@stackbit/cli": "^0.3.133",
+    "@stackbit/cms-git": "^1.0.35",
     "@stackbit/types": "^2.1.14"
   }
 }

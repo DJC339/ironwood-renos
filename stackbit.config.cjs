@@ -1,12 +1,10 @@
-// @ts-nocheck
-import { defineStackbitConfig } from "@stackbit/types";
-
-export default defineStackbitConfig({
+// CommonJS config — no imports, no constructors, no TS
+module.exports = {
   stackbitVersion: "~0.6.0",
   nodeVersion: "18",
   ssgName: "custom",
 
-  // No cms-git imports, no constructors
+  // declarative git content source — no GitContentSource class used
   contentSources: [
     {
       name: "git",
@@ -67,4 +65,4 @@ export default defineStackbitConfig({
       ]
     }
   ]
-});
+};

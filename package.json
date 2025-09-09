@@ -8,9 +8,7 @@
     "preview": "stackbit dev --port 5174 --open=false",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "18.x"
-  },
+  "engines": { "node": "18.x" },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DJC339/ironwood-renos.git"
@@ -18,13 +16,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DJC339/ironwood-renos/issues"
-  },
+  "bugs": { "url": "https://github.com/DJC339/ironwood-renos/issues" },
   "homepage": "https://github.com/DJC339/ironwood-renos#readme",
   "devDependencies": {
     "@stackbit/cli": "^0.3.133",
-    "@stackbit/cms-git": "^1.0.35",
     "@stackbit/types": "^2.1.14"
   }
 }

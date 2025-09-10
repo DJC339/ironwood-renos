@@ -1,13 +1,13 @@
+// stackbit.config.cjs
 module.exports = {
   stackbitVersion: "~0.6.0",
   nodeVersion: "18",
   ssgName: "custom",
-
   contentSources: [
     {
       name: "git",
       type: "git",
-      rootPath: __dirname,
+      rootPath: "C:\\Users\\boome\\OneDrive\\Documents\\Portfolio Projects\\Ironwood Renos",
       contentDirs: ["content"],
       models: [
         {
@@ -16,9 +16,9 @@ module.exports = {
           type: "data",
           filePath: "content/site.json",
           fields: [
-            { name: "hero_title",   type: "string", label: "Hero Title" },
+            { name: "hero_title", type: "string", label: "Hero Title" },
             { name: "hero_tagline", type: "string", label: "Hero Tagline" },
-            { name: "cta_label",    type: "string", label: "CTA Button Text" },
+            { name: "cta_label", type: "string", label: "CTA Button Text" },
             {
               name: "services",
               type: "list",
@@ -63,13 +63,14 @@ module.exports = {
       ]
     }
   ],
-
   // 🔑 This section tells Stackbit how to map your JSON to index.html
   pages: [
     {
-      urlPath: "/", // homepage
+      urlPath: "/",
+      // homepage
       filePath: "index.html",
       model: "siteSettings"
     }
   ]
 };
+//# sourceMappingURL=stackbit.config.WD5V6QI2.cjs.map

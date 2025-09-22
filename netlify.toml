@@ -1,8 +1,12 @@
-[build.environment]
-  NODE_VERSION = "18"
+# netlify.toml
+
+[build]
+  publish = "."
+  # no build command needed for the preview server
 
 [dev]
-  command    = "npm run dev:site"  # starts http-server
-  targetPort = 5174                # your site server
-  port       = 8888                # Netlify’s proxy port (must differ)
+  command    = "npm run dev:site"  # this runs http-server
+  targetPort = 5174                # your site server listens here
+  port       = 8888                # Netlify’s proxy port (must be DIFFERENT)
+  framework  = "#custom"
   autoLaunch = false

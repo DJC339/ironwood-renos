@@ -1,75 +1,51 @@
-module.exports = {
-  stackbitVersion: "~0.6.0",
-  nodeVersion: "18",
-  ssgName: "custom",
+// CommonJS + class-based GitContentSource
+const { GitContentSource } = require('@stackbit/cms-git');
 
+module.exports = {
+  stackbitVersion: '~0.6.0',
+  nodeVersion: '18',
+  ssgName: 'custom',
   contentSources: [
-    {
-      name: "git",
-      type: "git",
+    new GitContentSource({
       rootPath: __dirname,
-      contentDirs: ["content"],
+      contentDirs: ['content'],
       models: [
+        // site-wide data
         {
-          name: "siteSettings",
-          label: "Site Content",
-          type: "data",
-          filePath: "content/site.json",
+          name: 'siteSettings',
+          type: 'data',
+          filePath: 'content/site.json',
           fields: [
-            { name: "hero_title",   type: "string", label: "Hero Title" },
-            { name: "hero_tagline", type: "string", label: "Hero Tagline" },
-            { name: "cta_label",    type: "string", label: "CTA Button Text" },
-            {
-              name: "services",
-              type: "list",
-              label: "Services",
-              items: {
-                type: "object",
-                fields: [
-                  { name: "title", type: "string", label: "Title", required: true },
-                  { name: "description", type: "string", label: "Description" }
-                ]
-              }
-            },
-            {
-              name: "projects",
-              type: "list",
-              label: "Projects",
-              items: {
-                type: "object",
-                fields: [
-                  { name: "title", type: "string", label: "Title", required: true },
-                  { name: "description", type: "string", label: "Description" },
-                  { name: "image", type: "string", label: "Image Path" },
-                  { name: "url", type: "string", label: "Project URL" }
-                ]
-              }
-            },
-            {
-              name: "testimonials",
-              type: "list",
-              label: "Testimonials",
-              items: {
-                type: "object",
-                fields: [
-                  { name: "client_name", type: "string", label: "Client Name" },
-                  { name: "testimonial", type: "string", label: "Testimonial" }
-                ]
-              }
-            },
-            { name: "footer_note", type: "string", label: "Footer Note" }
+            { name: 'hero_title', type: 'string' },
+            { name: 'hero_tagline', type: 'string' },
+            { name: 'cta_label', type: 'string' },
+            { name: 'services', type: 'list', items: { type: 'object', fields: [
+              { name: 'title', type: 'string', required: true },
+              { name: 'description', type: 'string' }
+            ]}},
+            { name: 'projects', type: 'list', items: { type: 'object', fields: [
+              { name: 'title', type: 'string', required: true },
+              { name: 'description', type: 'string' },
+              { name: 'image', type: 'string' },
+              { name: 'url', type: 'string' }
+            ]}},
+            { name: 'testimonials', type: 'list', items: { type: 'object', fields: [
+              { name: 'client_name', type: 'string' },
+              { name: 'testimonial', type: 'string' }
+            ]}},
+            { name: 'footer_note', type: 'string' }
           ]
+        },
+        // a single “homepage” page model
+        {
+          name: 'Page',
+          label: 'Pages',
+          type: 'page',
+          urlPath: '/',                      // this page renders at /
+          filePath: 'content/pages/home.json',
+          fields: [{ name: 'title', type: 'string', required: true }]
         }
       ]
-    }
-  ],
-
-  // 🔑 This section tells Stackbit how to map your JSON to index.html
-  pages: [
-    {
-      urlPath: "/", // homepage
-      filePath: "index.html",
-      model: "siteSettings"
-    }
+    })
   ]
 };

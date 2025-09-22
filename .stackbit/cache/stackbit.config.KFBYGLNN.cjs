@@ -10,6 +10,7 @@ module.exports = {
       rootPath: "C:\\Users\\boome\\OneDrive\\Documents\\Portfolio Projects\\Ironwood Renos",
       contentDirs: ["content"],
       models: [
+        // Data model for site-wide content
         {
           name: "siteSettings",
           label: "Site Content",
@@ -41,7 +42,7 @@ module.exports = {
                   { name: "title", type: "string", label: "Title", required: true },
                   { name: "description", type: "string", label: "Description" },
                   { name: "image", type: "string", label: "Image Path" },
-                  { name: "url", type: "string", label: "Project URL" }
+                  { name: "url", type: "string", label: "Project URL", required: false }
                 ]
               }
             },
@@ -59,18 +60,20 @@ module.exports = {
             },
             { name: "footer_note", type: "string", label: "Footer Note" }
           ]
+        },
+        // Page model that maps to "/"
+        {
+          name: "Page",
+          label: "Pages",
+          type: "page",
+          urlPath: "/",
+          filePath: "content/pages/home.json",
+          fields: [
+            { name: "title", type: "string", label: "Title", required: true }
+          ]
         }
       ]
     }
-  ],
-  // 🔑 This section tells Stackbit how to map your JSON to index.html
-  pages: [
-    {
-      urlPath: "/",
-      // homepage
-      filePath: "index.html",
-      model: "siteSettings"
-    }
   ]
 };
-//# sourceMappingURL=stackbit.config.WD5V6QI2.cjs.map
+//# sourceMappingURL=stackbit.config.KFBYGLNN.cjs.map

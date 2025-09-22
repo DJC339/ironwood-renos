@@ -1,10 +1,8 @@
-[build]
-  publish = "."
-
-[[plugins]]
-  package = "@netlify/plugin-visual-editor"
+[build.environment]
+  NODE_VERSION = "18"
 
 [dev]
-  command    = "npm run dev:site"
-  port       = 5174
-  targetPort = 5174
+  command    = "npm run dev:site"  # starts http-server
+  targetPort = 5174                # your site server
+  port       = 8888                # Netlify’s proxy port (must differ)
+  autoLaunch = false

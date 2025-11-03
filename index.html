@@ -51,16 +51,20 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2>Featured Projects</h2>
-    <div class="gallery-grid">
-      <img src="images/project1.jpg" alt="Cedar Deck Project">
-      <img src="images/project2.jpg" alt="Modern Bathroom Remodel">
-      <img src="images/project3.jpg" alt="Open-Concept Kitchen">
-      <img src="images/project4.jpg" alt="Basement Lounge">
+  <!-- Gallery Section (Tailwind) -->
+  <section>
+    <div class="container py-16 md:py-20">
+      <h2 class="text-2xl mb-6 text-primary font-semibold text-center">Featured Projects</h2>
+
+      <div class="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <img src="images/project1.jpg" alt="Cedar Deck Project" class="w-full h-64 object-cover rounded-sm shadow-sm block">
+        <img src="images/project2.jpg" alt="Modern Bathroom Remodel" class="w-full h-64 object-cover rounded-sm shadow-sm block">
+        <img src="images/project3.jpg" alt="Open-Concept Kitchen" class="w-full h-64 object-cover rounded-sm shadow-sm block">
+        <img src="images/project4.jpg" alt="Basement Lounge" class="w-full h-64 object-cover rounded-sm shadow-sm block">
+      </div>
     </div>
   </section>
+
 
   <!-- Testimonials Section -->
   <section class="testimonials">

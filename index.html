@@ -10,14 +10,35 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="text-white" style="background-image:url('images/ironwood-renos-banner.webp'); background-size:cover; background-position:center;">
-    <div class="section text-center">
+<!-- Hero Section (full image, no cropping, no Tailwind rebuild required) -->
+<section class="text-white text-center" style="position:relative;">
+  <!-- Full image keeps its natural aspect ratio -->
+  <img
+    src="images/ironwood-renos-banner.webp"
+    alt="Ironwood Renos Banner"
+    style="display:block;width:100%;height:auto;max-height:100vh;object-fit:contain;"
+  />
+
+  <!-- Centered overlay (title + tagline + CTA) -->
+  <div
+    style="
+      position:absolute;inset:0;
+      display:flex;align-items:center;justify-content:center;
+      padding:0 1rem;
+    "
+  >
+    <div>
       <h1 class="text-hero-xl font-semibold mb-2">Ironwood Renos</h1>
-      <p class="text-lg">Quality Renovations Built to Last</p>
-      <!-- CTA intentionally removed (footer holds the only CTA) -->
+      <p class="text-lg mb-6">Quality Renovations Built to Last</p>
+      <a href="#contact"
+         class="btn-primary"
+         >Request a Quote</a>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
 
   <!-- Services Section -->
   <section class="bg-bg-light">

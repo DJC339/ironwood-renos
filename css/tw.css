@@ -688,6 +688,11 @@ h2 {
   background-color: rgb(255 248 240 / var(--tw-bg-opacity, 1));
 }
 
+.bg-bg-form {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 242 242 / var(--tw-bg-opacity, 1));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -789,6 +794,10 @@ h2 {
 
 .focus-visible\:ring-white\/80:focus-visible {
   --tw-ring-color: rgb(255 255 255 / 0.8);
+}
+
+.focus-visible\:ring-primary\/60:focus-visible {
+  --tw-ring-color: rgb(107 79 59 / 0.6);
 }
 
 @media (min-width: 640px) {

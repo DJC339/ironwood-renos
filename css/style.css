@@ -35,10 +35,19 @@ body {
 
 h1, h2, h3 {
   margin-top: 0;
+  font-weight: 600;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 section {
@@ -48,51 +57,13 @@ section {
 }
 
 /* ====================================================
-   Header
-==================================================== */
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  padding: 1rem 2rem;
-}
-
-.site-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
-  font-size: 1.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
-}
-
-/* ====================================================
    Hero Section
 ==================================================== */
 .hero {
   background: url('../images/ironwood-renos-banner.webp') center center / cover no-repeat;
   color: var(--color-white);
   text-align: center;
-  padding: 100px 20px;
-  margin-top: 2rem; /* ✅ Adds space below the header */
+  padding: 120px 20px;
 }
 
 .hero-content h1 {
@@ -112,6 +83,11 @@ nav a {
   border-radius: var(--radius-sm);
   font-weight: bold;
   display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #5a3f30;
 }
 
 /* ====================================================
@@ -134,9 +110,14 @@ nav a {
   background: var(--color-white);
   border: 1px solid #ddd;
   padding: 20px;
-  width: 250px;
+  width: 260px;
   box-shadow: var(--shadow-sm);
   border-radius: var(--radius-sm);
+}
+
+.service-card h3 {
+  color: var(--color-primary);
+  margin-bottom: 10px;
 }
 
 /* ====================================================
@@ -153,6 +134,7 @@ nav a {
   width: 100%;
   display: block;
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ====================================================
@@ -164,49 +146,39 @@ nav a {
   font-style: italic;
 }
 
+.testimonial {
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial blockquote {
+  quotes: "“" "”";
+  position: relative;
+  margin: 0 0 0.5rem;
+}
+
+.testimonial blockquote::before {
+  content: open-quote;
+  color: var(--color-primary);
+  font-size: 2rem;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.testimonial cite {
+  display: block;
+  color: var(--color-muted);
+  font-style: normal;
+}
+
 /* ====================================================
    Contact Section
 ==================================================== */
 .contact {
   background: var(--color-bg-form);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: auto;
-  gap: 15px;
-}
-
-form input,
-form textarea {
-  padding: 10px;
-  font-size: var(--font-size-base);
-  border: 1px solid #ccc;
-  border-radius: var(--radius-sm);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-form button {
-  background: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  padding: 12px;
-  font-size: var(--font-size-base);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-}
-
-/* ====================================================
-   Portfolio Note
-==================================================== */
-.portfolio-note {
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--color-muted);
-  margin-top: 20px;
 }
 
 /* ====================================================
@@ -217,4 +189,5 @@ footer {
   color: var(--color-footer-text);
   text-align: center;
   padding: 20px;
+  font-size: 0.9rem;
 }

@@ -11,33 +11,56 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1 id="hero-title">Ironwood Renos</h1>
-      <p id="hero-tagline">Quality Renovations Built to Last</p>
-      <a href="#contact" class="btn-primary" id="hero-cta">Request a Quote</a>
+      <h1>Ironwood Renos</h1>
+      <p>Quality Renovations Built to Last</p>
+      <a href="#contact" class="btn-primary">Request a Quote</a>
     </div>
   </section>
 
   <!-- Services Section -->
   <section class="services">
     <h2>Our Services</h2>
-    <div class="service-list" id="services-list">
-      <!-- populated by JSON loader -->
+    <div class="service-list">
+      <div class="service-card">
+        <h3>Kitchen & Bath Renovations</h3>
+        <p>Custom cabinetry, tile work, and full remodels designed to add beauty and functionality to your home.</p>
+      </div>
+      <div class="service-card">
+        <h3>Basement Finishing</h3>
+        <p>Transform your basement into a comfortable living space or entertainment area.</p>
+      </div>
+      <div class="service-card">
+        <h3>Decks & Outdoor Structures</h3>
+        <p>Durable and beautiful decks, pergolas, and outdoor additions built for Canadian weather.</p>
+      </div>
     </div>
   </section>
 
   <!-- Gallery Section -->
   <section class="gallery">
     <h2>Featured Projects</h2>
-    <div class="gallery-grid" id="projects-grid">
-      <!-- populated by JSON loader -->
+    <div class="gallery-grid">
+      <img src="images/project1.jpg" alt="Cedar Deck Project">
+      <img src="images/project2.jpg" alt="Modern Bathroom Remodel">
+      <img src="images/project3.jpg" alt="Open-Concept Kitchen">
+      <img src="images/project4.jpg" alt="Basement Lounge">
     </div>
   </section>
 
   <!-- Testimonials Section -->
   <section class="testimonials">
     <h2>What Clients Say</h2>
-    <div id="testimonials-wrap">
-      <!-- populated by JSON loader -->
+    <div class="testimonial">
+      <blockquote>“Ironwood completely transformed our kitchen — the craftsmanship is outstanding!”</blockquote>
+      <cite>— Sarah L., Kingston</cite>
+    </div>
+    <div class="testimonial">
+      <blockquote>“Reliable, clean, and professional. Our new deck looks fantastic.”</blockquote>
+      <cite>— Mark R., Napanee</cite>
+    </div>
+    <div class="testimonial">
+      <blockquote>“They treated our home like their own. Highly recommended.”</blockquote>
+      <cite>— Laura P., Amherstview</cite>
     </div>
   </section>
 
@@ -49,71 +72,8 @@
 
   <!-- Footer -->
   <footer>
-    <p id="footer-note">© 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
+    <p>© 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
   </footer>
 
-  <!-- JSON loader: render edits made in Visual Editor -->
-  <script>
-  (async () => {
-    try {
-      const res = await fetch('content/site.json', { cache: 'no-cache' });
-      if (!res.ok) return;
-      const data = await res.json();
-
-      // Hero
-      const h1 = document.getElementById('hero-title');
-      const p  = document.getElementById('hero-tagline');
-      const cta= document.getElementById('hero-cta');
-      if (h1 && data.hero_title)   h1.textContent = data.hero_title;
-      if (p  && data.hero_tagline) p.textContent  = data.hero_tagline;
-      if (cta&& data.cta_label)    cta.textContent= data.cta_label;
-
-      // Services
-      const servicesEl = document.getElementById('services-list');
-      if (servicesEl && Array.isArray(data.services)) {
-        servicesEl.innerHTML = '';
-        data.services.forEach(svc => {
-          const card = document.createElement('div');
-          card.className = 'service-card';
-          card.innerHTML = `<h3>${svc.title || ''}</h3><p>${svc.description || ''}</p>`;
-          servicesEl.appendChild(card);
-        });
-      }
-
-      // Projects
-      const projectsEl = document.getElementById('projects-grid');
-      if (projectsEl && Array.isArray(data.projects)) {
-        projectsEl.innerHTML = '';
-        data.projects.forEach(prj => {
-          const img = document.createElement('img');
-          img.src = prj.image || '';
-          img.alt = prj.title || 'Project image';
-          projectsEl.appendChild(img);
-        });
-      }
-
-      // Testimonials
-      const tWrap = document.getElementById('testimonials-wrap');
-      if (tWrap && Array.isArray(data.testimonials)) {
-        tWrap.innerHTML = '';
-        data.testimonials.forEach(t => {
-          const bq = document.createElement('blockquote');
-          bq.textContent = `“${t.testimonial || ''}”`;
-          const cite = document.createElement('cite');
-          cite.textContent = `— ${t.client_name || ''}`;
-          const container = document.createElement('div');
-          container.style.textAlign = 'center';
-          container.appendChild(bq);
-          container.appendChild(cite);
-          tWrap.appendChild(container);
-        });
-      }
-
-      // Footer
-      const footer = document.getElementById('footer-note');
-      if (footer && data.footer_note) footer.textContent = data.footer_note;
-    } catch {/* silent fail */}
-  })();
-  </script>
 </body>
 </html>

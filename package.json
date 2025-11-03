@@ -1,29 +1,14 @@
 {
   "name": "ironwood-renos",
   "version": "1.0.0",
-  "description": "**Ironwood Renos** is a single-page static portfolio demo website built by [Code Forged Digital](https://codeforgeddigital.ca). It showcases a clean, modern renovation services site with responsive design and a focus on performance.",
-  "main": "index.js",
-  "scripts": {
-    "preview": "stackbit dev --port 5174",
-    "dev:site": "http-server -p 5174 -c-1 ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DJC339/ironwood-renos.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "Ironwood Renos static portfolio demo site.",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/DJC339/ironwood-renos/issues"
+  "scripts": {
+    "dev": "http-server -p 5174 -c-1 .",
+    "build": "echo \"Static site - nothing to build\""
   },
-  "homepage": "https://github.com/DJC339/ironwood-renos#readme",
   "devDependencies": {
-    "@netlify/plugin-visual-editor": "^1.4.1",
-    "@stackbit/cli": "^0.3.133",
-    "@stackbit/cms-git": "^1.0.35",
-    "@stackbit/types": "^2.1.14",
     "http-server": "^14.1.1"
   }
 }
+

@@ -1,43 +1,65 @@
 # Ironwood Renos
 
-**Ironwood Renos** is a single-page static portfolio demo website built by [Code Forged Digital](https://codeforgeddigital.ca). It showcases a clean, modern renovation services site with responsive design and a focus on performance.
+**Ironwood Renos** is a single-page static demo website built by [Code Forged Digital](https://codeforgeddigital.ca).  
+This rebooted version focuses on simplicity, clean structure, and fast performance — serving as a baseline before adding Tailwind CSS or CMS integration.
+
+---
 
 ## 🌐 Live Site
 
 [https://ironwoodrenos.codeforgeddigital.ca](https://ironwoodrenos.codeforgeddigital.ca)
 
+---
+
 ## 📁 Project Structure
 
-```
-/
-├── index.html
+    /
+├── index.html # Static one-page layout (no JSON or JS loaders)
 ├── css/
-│   └── style.css
+│ └── style.css # Minimal responsive CSS using custom variables
 ├── images/
-│   └── project1.jpg, project2.jpg, ...
-```
+│ ├── ironwood-renos-banner.webp
+│ ├── project1.jpg
+│ ├── project2.jpg
+│ ├── project3.jpg
+│ └── project4.jpg
+├── .gitignore
+├── package.json
+└── README.md
+
+
+---
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3
-- Responsive design (media queries)
-- Hosted & deployed via Netlify
+- **HTML5** — semantic, single-page structure  
+- **CSS3** — lightweight custom styles (no frameworks)  
+- **Node (http-server)** — simple local dev server  
+- **Netlify** — hosting and continuous deployment  
+
+---
 
 ## ✨ Features
 
-- Hero section with call-to-action
-- Services section with icons
-- Project gallery
-- Testimonials section
-- Contact form (static mockup)
-- Clean, mobile-friendly layout
+- Hero section with banner and call-to-action  
+- Services section with three key offerings  
+- Gallery showcasing four projects  
+- Testimonials from clients  
+- Static contact section (form disabled for demo)  
+- Responsive layout optimized for mobile and desktop  
 
-## 📦 Usage
+---
 
-This project is for demonstration purposes only. It can be customized and reused for renovation, construction, or contractor businesses.
+## 🚀 Development
 
-## 🔗 Built by
+### Run locally
+```bash
+npm install
+npm run dev
 
-[Code Forged Digital](https://codeforgeddigital.ca)
-Updated 
+Then open: http://localhost:5174
+
+Deploy
+
+Push to GitHub and connect to Netlify.
+No build command required — just serve index.html as the site root.

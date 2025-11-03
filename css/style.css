@@ -1,59 +1,14 @@
-/* ====================================================
-   Root Variables
-==================================================== */
-:root {
-  --color-primary: #6b4f3b;
-  --color-text: #333;
-  --color-muted: #666;
-  --color-bg-light: #f8f8f8;
-  --color-bg-alt: #fff8f0;
-  --color-bg-form: #f2f2f2;
-  --color-white: #fff;
-  --color-footer-bg: #222;
-  --color-footer-text: #ccc;
-
-  --font-body: Arial, sans-serif;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.2rem;
-  --font-size-xl: 3rem;
-  --radius-sm: 5px;
-  --radius-md: 8px;
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-/* ====================================================
-   Global Styles
-==================================================== */
+/* Minimal legacy styles (safe after Tailwind migration) */
 body {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
   line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-white);
-}
-
-h1, h2, h3 {
-  margin-top: 0;
-  font-weight: 600;
-}
-
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--color-primary);
+  color: #333;
+  background-color: #fff;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
-
-section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-

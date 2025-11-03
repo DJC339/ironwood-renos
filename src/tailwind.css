@@ -6,3 +6,7 @@
   body { @apply font-body text-text bg-bg; }
   h2 { @apply text-center text-2xl mb-6 text-primary font-semibold; }
 }
+@layer components {
+  .section {@apply container py-12 md:py-16;}
+}
+

@@ -57,40 +57,6 @@ section {
 }
 
 /* ====================================================
-   Hero Section
-==================================================== */
-.hero {
-  background: url('../images/ironwood-renos-banner.webp') center center / cover no-repeat;
-  color: var(--color-white);
-  text-align: center;
-  padding: 120px 20px;
-}
-
-.hero-content h1 {
-  font-size: var(--font-size-xl);
-  margin-bottom: 0.5rem;
-}
-
-.hero-content p {
-  font-size: var(--font-size-lg);
-  margin-bottom: 1.5rem;
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: 0.8rem 1.5rem;
-  border-radius: var(--radius-sm);
-  font-weight: bold;
-  display: inline-block;
-  transition: background 0.3s ease;
-}
-
-.btn-primary:hover {
-  background: #5a3f30;
-}
-
-/* ====================================================
    Services Section
 ==================================================== */
 .services {

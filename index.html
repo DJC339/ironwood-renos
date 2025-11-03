@@ -4,18 +4,26 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ironwood Renos</title>
+
+  <!-- Tailwind build (Phase 4) -->
+  <link rel="stylesheet" href="css/tw.css"/>
+  <!-- Legacy CSS (kept for non-hero sections) -->
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Ironwood Renos</h1>
-      <p>Quality Renovations Built to Last</p>
-      <a href="#contact" class="btn-primary">Request a Quote</a>
+  <!-- Hero Section (Tailwind) -->
+  <section class="text-white" style="background-image:url('images/ironwood-renos-banner.webp'); background-size:cover; background-position:center;">
+    <div class="container py-16 md:py-20 text-center">
+      <h1 class="text-hero-xl font-semibold mb-2">Ironwood Renos</h1>
+      <p class="text-lg mb-6">Quality Renovations Built to Last</p>
+      <a href="#contact"
+        class="inline-block bg-primary text-white font-semibold rounded-sm shadow-sm px-6 py-3 hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
+      Request a Quote
+      </a>
     </div>
   </section>
+
 
   <!-- Services Section -->
   <section class="services">

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -41,10 +41,21 @@
     .hero-placeholder.hide { opacity:0; pointer-events:none; }
     .hero-img { opacity:0; transition:opacity .3s ease; display:block; }
     .hero-img.show { opacity:1; }
+    /* Layering to keep overlay text above image/overlay */
+    .hero-overlay { z-index: 20; }
+    .hero-cta { z-index: 20; }
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-placeholder, .hero-img { transition: none !important; }
+    }
+    /* Skip link */
+    .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position:absolute; left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem; background:#000; color:#fff; border-radius:4px; z-index:50; }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Demo Notice Banner -->
   <div style="
@@ -56,14 +67,15 @@
     letter-spacing: 0.5px;
     font-family: Arial, sans-serif;
   ">
-    ⚒️ This is a <strong>demo portfolio site</strong> built by 
-    <a href="https://www.codeforgeddigital.ca" target="_blank" rel="noopener noreferrer" style="color:#facc15; text-decoration:none;">
+    Note: This is a <strong>demo portfolio site</strong> built by 
+    <a href="https://www.codeforgeddigital.ca" target="_blank" rel="noopener noreferrer" style="color:#facc15; text-decoration:none;" aria-label="Code Forged Digital (opens in a new tab)">
       Code Forged Digital Inc.
     </a>
     Ironwood Renos is not a real business.
   </div>
 
 <!-- Hero Section (Tailwind only, compact CTA) -->
+<main id="main-content">
 <section class="relative text-white text-center">
   <!-- Full image with intrinsic dimensions to reserve space -->
   <div class="hero-wrap w-full aspect-[12/5] max-h-screen overflow-hidden">
@@ -71,13 +83,14 @@
     <img
       id="hero-img"
       src="images/ironwood-renos-banner.webp"
-      alt="Ironwood Renos Banner"
+      alt=""
       class="hero-img w-full h-full object-cover block"
       width="1920"
       height="800"
       fetchpriority="high"
       loading="eager"
     />
+    <div class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
   </div>
 
   <!-- Centered text -->
@@ -154,43 +167,44 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
+    <!-- Testimonials Section -->
   <section class="bg-bg-alt">
     <div class="section text-center">
       <h2 class="section-title">What Clients Say</h2>
 
-      <div class="testimonial mb-8">
+      <figure class="testimonial mb-8">
         <blockquote class="italic">
-          <span class="align-top text-primary text-2xl mr-1">“</span>
-          Ironwood completely transformed our kitchen — their work is outstanding!
+          <span class="align-top text-primary text-2xl mr-1" aria-hidden="true">“</span>
+          <p>Ironwood completely transformed our kitchen — their work is outstanding!</p>
         </blockquote>
-        <cite class="not-italic text-muted block mt-2">— Sarah L., Kingston</cite>
-      </div>
+        <figcaption class="not-italic text-muted block mt-2">— Sarah L., Kingston</figcaption>
+      </figure>
 
-      <div class="testimonial mb-8">
+      <figure class="testimonial mb-8">
         <blockquote class="italic">
-          <span class="align-top text-primary text-2xl mr-1">“</span>
-          Reliable, clean, and professional. Our new family room looks fantastic.
+          <span class="align-top text-primary text-2xl mr-1" aria-hidden="true">“</span>
+          <p>Reliable, clean, and professional. Our new family room looks fantastic.</p>
         </blockquote>
-        <cite class="not-italic text-muted block mt-2">— Mark R., Napanee</cite>
-      </div>
+        <figcaption class="not-italic text-muted block mt-2">— Mark R., Napanee</figcaption>
+      </figure>
 
-      <div class="testimonial">
+      <figure class="testimonial">
         <blockquote class="italic">
-          <span class="align-top text-primary text-2xl mr-1">“</span>
-          They treated our home like their own. Highly recommended.
+          <span class="align-top text-primary text-2xl mr-1" aria-hidden="true">“</span>
+          <p>They treated our home like their own. Highly recommended.</p>
         </blockquote>
-        <cite class="not-italic text-muted block mt-2">— Laura P., Amherstview</cite>
-      </div>
+        <figcaption class="not-italic text-muted block mt-2">— Laura P., Amherstview</figcaption>
+      </figure>
     </div>
   </section>
 
+  </main>
   <!-- Footer -->
   <footer class="bg-footer-bg text-footer-text text-sm">
     <div class="container py-5 flex flex-col sm:flex-row items-center justify-between">
-      <p>© 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
+      <p>&copy; 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
 
-      <a href="#" class="mt-4 sm:mt-0 btn-primary-sm">
+      <a href="#" class="mt-4 sm:mt-0 btn-primary-sm" aria-disabled="true" tabindex="-1">
         Contact Us
       </a>
     </div>
@@ -215,3 +229,6 @@
 
 </body>
 </html>
+
+
+

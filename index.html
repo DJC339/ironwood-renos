@@ -30,6 +30,17 @@
       justify-content: center;
       bottom: 2.5rem; /* matches bottom-10 */
     }
+    /* Minimal base + text sizing to match Tailwind above-the-fold */
+    body { margin: 0; background:#fff; color:#333; font-family: Arial, ui-sans-serif, system-ui, sans-serif; }
+    .text-hero-xl { font-size: 3rem; line-height: 1.1; font-weight: 600; }
+    .text-lg { font-size: 1.2rem; line-height: 1.6; }
+    .btn-primary-sm { display:inline-block; border-radius:5px; background:#6b4f3b; color:#fff; font-weight:600; padding:.5rem 1rem; }
+    /* Hero image fade-in and placeholder */
+    .hero-wrap { position: relative; }
+    .hero-placeholder { position:absolute; inset:0; background:#e9e3dc; transition:opacity .3s ease; }
+    .hero-placeholder.hide { opacity:0; pointer-events:none; }
+    .hero-img { opacity:0; transition:opacity .3s ease; display:block; }
+    .hero-img.show { opacity:1; }
   </style>
 </head>
 
@@ -53,17 +64,21 @@
   </div>
 
 <!-- Hero Section (Tailwind only, compact CTA) -->
-<section class="relative text-white text-center" style="background:#ddd;">
+<section class="relative text-white text-center">
   <!-- Full image with intrinsic dimensions to reserve space -->
-  <img
-    src="images/ironwood-renos-banner.webp"
-    alt="Ironwood Renos Banner"
-    class="w-full h-auto max-h-screen object-contain block"
-    width="1920"
-    height="800"
-    fetchpriority="high"
-    loading="eager"
-  />
+  <div class="hero-wrap w-full aspect-[12/5] max-h-screen overflow-hidden">
+    <div id="hero-ph" class="hero-placeholder"></div>
+    <img
+      id="hero-img"
+      src="images/ironwood-renos-banner.webp"
+      alt="Ironwood Renos Banner"
+      class="hero-img w-full h-full object-cover block"
+      width="1920"
+      height="800"
+      fetchpriority="high"
+      loading="eager"
+    />
+  </div>
 
   <!-- Centered text -->
   <div class="hero-overlay absolute inset-0 flex flex-col justify-center items-center px-4">
@@ -180,6 +195,23 @@
       </a>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var img = document.getElementById('hero-img');
+      var ph = document.getElementById('hero-ph');
+      function reveal(){
+        if (ph) ph.classList.add('hide');
+        if (img) img.classList.add('show');
+      }
+      if (img && img.complete) {
+        // Already cached/loaded
+        reveal();
+      } else if (img) {
+        img.addEventListener('load', reveal, { once: true });
+      }
+    })();
+  </script>
 
 </body>
 </html>

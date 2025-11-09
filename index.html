@@ -6,7 +6,31 @@
   <title>Ironwood Renos</title>
 
   <!-- Tailwind build -->
+  <link rel="preload" as="image" href="images/ironwood-renos-banner.webp" />
   <link rel="stylesheet" href="css/tw.css" />
+  <style>
+    /* Minimal critical styles to stabilize hero before Tailwind loads */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-cta {
+      position: absolute;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      bottom: 2.5rem; /* matches bottom-10 */
+    }
+  </style>
 </head>
 
 <body>
@@ -29,16 +53,20 @@
   </div>
 
 <!-- Hero Section (Tailwind only, compact CTA) -->
-<section class="relative text-white text-center">
-  <!-- Full image -->
+<section class="relative text-white text-center" style="background:#ddd;">
+  <!-- Full image with intrinsic dimensions to reserve space -->
   <img
     src="images/ironwood-renos-banner.webp"
     alt="Ironwood Renos Banner"
     class="w-full h-auto max-h-screen object-contain block"
+    width="1920"
+    height="800"
+    fetchpriority="high"
+    loading="eager"
   />
 
   <!-- Centered text -->
-  <div class="absolute inset-0 flex flex-col justify-center items-center px-4">
+  <div class="hero-overlay absolute inset-0 flex flex-col justify-center items-center px-4">
     <h1 class="text-hero-xl font-semibold mb-2 drop-shadow-lg">
       Ironwood Renos
     </h1>
@@ -48,7 +76,7 @@
   </div>
 
   <!-- Smaller CTA anchored to bottom -->
-  <div class="absolute left-0 right-0 flex justify-center bottom-10 sm:bottom-12 md:bottom-16">
+  <div class="hero-cta absolute left-0 right-0 flex justify-center bottom-10 sm:bottom-12 md:bottom-16">
     <a
       href="#contact"
       class="btn-primary-sm"
@@ -91,10 +119,22 @@
       <h2 class="section-title">Featured Projects</h2>
 
       <div class="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <img src="images/project1.jpg" alt="Cedar Deck Project" class="img-tile">
-        <img src="images/project2.jpg" alt="Modern Bathroom Remodel" class="img-tile">
-        <img src="images/project3.jpg" alt="Open-Concept Kitchen" class="img-tile">
-        <img src="images/project4.jpg" alt="Basement Lounge" class="img-tile">
+        <picture>
+          <source srcset="images/project1.webp" type="image/webp" />
+          <img src="images/project1.jpg" alt="Cedar Deck Project" class="img-tile" loading="lazy" decoding="async" width="250" height="202" />
+        </picture>
+        <picture>
+          <source srcset="images/project2.webp" type="image/webp" />
+          <img src="images/project2.jpg" alt="Modern Bathroom Remodel" class="img-tile" loading="lazy" decoding="async" width="244" height="206" />
+        </picture>
+        <picture>
+          <source srcset="images/project3.webp" type="image/webp" />
+          <img src="images/project3.jpg" alt="Open-Concept Kitchen" class="img-tile" loading="lazy" decoding="async" width="275" height="183" />
+        </picture>
+        <picture>
+          <source srcset="images/project4.webp" type="image/webp" />
+          <img src="images/project4.jpg" alt="Basement Lounge" class="img-tile" loading="lazy" decoding="async" width="202" height="250" />
+        </picture>
       </div>
     </div>
   </section>

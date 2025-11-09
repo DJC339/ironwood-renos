@@ -6,7 +6,10 @@
   <title>Ironwood Renos</title>
 
   <!-- Tailwind build -->
-  <link rel="preload" as="image" href="images/ironwood-renos-banner.webp" />
+  <link rel="preload" as="image" href="images/ironwood-renos-banner.webp"
+        imagesrcset="images/ironwood-renos-banner-800.webp 800w, images/ironwood-renos-banner-1200.webp 1200w, images/ironwood-renos-banner-1600.webp 1600w, images/ironwood-renos-banner.webp 1920w"
+        imagesizes="100vw"
+        fetchpriority="high" />
   <link rel="stylesheet" href="css/tw.css" />
   <style>
     /* Minimal critical styles to stabilize hero before Tailwind loads */
@@ -35,19 +38,14 @@
     .text-hero-xl { font-size: 3rem; line-height: 1.1; font-weight: 600; }
     .text-lg { font-size: 1.2rem; line-height: 1.6; }
     .btn-primary-sm { display:inline-block; border-radius:5px; background:#6b4f3b; color:#fff; font-weight:600; padding:.5rem 1rem; }
-    /* Hero image fade-in and placeholder */
+    /* Hero container */
     .hero-wrap { position: relative; }
-    .hero-placeholder { position:absolute; inset:0; background:#e9e3dc; transition:opacity .3s ease; }
-    .hero-placeholder.hide { opacity:0; pointer-events:none; }
-    .hero-img { opacity:0; transition:opacity .3s ease; display:block; }
-    .hero-img.show { opacity:1; }
+    /* Match Code Forged approach: ensure hero has a stable minimum height before CSS loads */
+    .hero { min-height: 60vh; text-align: center; }
     /* Layering to keep overlay text above image/overlay */
     .hero-overlay { z-index: 20; }
     .hero-cta { z-index: 20; }
-    /* Reduced motion support */
-    @media (prefers-reduced-motion: reduce) {
-      .hero-placeholder, .hero-img { transition: none !important; }
-    }
+    /* Reduced motion support (no animations in critical CSS) */
     /* Skip link */
     .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
     .skip-link:focus { position:absolute; left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem; background:#000; color:#fff; border-radius:4px; z-index:50; }
@@ -76,15 +74,15 @@
 
 <!-- Hero Section (Tailwind only, compact CTA) -->
 <main id="main-content">
-<section class="relative text-white text-center">
+<section class="hero relative text-white text-center">
   <!-- Full image with intrinsic dimensions to reserve space -->
   <div class="hero-wrap w-full aspect-[12/5] max-h-screen overflow-hidden">
-    <div id="hero-ph" class="hero-placeholder"></div>
     <img
-      id="hero-img"
       src="images/ironwood-renos-banner.webp"
+      srcset="images/ironwood-renos-banner-800.webp 800w, images/ironwood-renos-banner-1200.webp 1200w, images/ironwood-renos-banner-1600.webp 1600w, images/ironwood-renos-banner.webp 1920w"
+      sizes="100vw"
       alt=""
-      class="hero-img w-full h-full object-cover block"
+      class="w-full h-full object-cover block"
       width="1920"
       height="800"
       fetchpriority="high"
@@ -210,22 +208,7 @@
     </div>
   </footer>
 
-  <script>
-    (function(){
-      var img = document.getElementById('hero-img');
-      var ph = document.getElementById('hero-ph');
-      function reveal(){
-        if (ph) ph.classList.add('hide');
-        if (img) img.classList.add('show');
-      }
-      if (img && img.complete) {
-        // Already cached/loaded
-        reveal();
-      } else if (img) {
-        img.addEventListener('load', reveal, { once: true });
-      }
-    })();
-  </script>
+  
 
 </body>
 </html>

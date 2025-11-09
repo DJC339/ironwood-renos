@@ -1,0 +1,11 @@
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+
+/css/tw.css
+  Cache-Control: public, max-age=3600
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+

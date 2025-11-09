@@ -59,4 +59,66 @@
   .testimonial {
     @apply mx-auto max-w-xl;
   }
+
+  /* ====================================================
+     Hero
+  ==================================================== */
+  /* Container sizing and overflow control */
+  .hero {
+    min-height: 50vh; /* fallback */
+    min-height: 50svh; /* reduce tall mobile viewport white space */
+    overflow: hidden;
+  }
+  @screen sm { .hero { min-height: 60vh; } }
+  /* Make the image wrapper fill the hero */
+  .hero .hero-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  /* Ensure overlay sits above image and reserves space for CTA on mobile */
+  .hero .hero-overlay {
+    z-index: 30;
+    padding-bottom: 4.5rem;
+  }
+  @screen sm {
+    .hero .hero-overlay { padding-bottom: 0; }
+  }
+  /* CTA always on top */
+  .hero .hero-cta {
+    z-index: 40;
+    bottom: 1.25rem; /* mobile: tighter spacing */
+  }
+  @screen sm {
+    .hero .hero-cta { bottom: 3rem; }
+  }
+  @screen md {
+    .hero .hero-cta { bottom: 4rem; }
+  }
+  /* Scale hero title and subtitle only within hero to avoid global impact */
+  .hero .text-hero-xl {
+    font-size: clamp(1.9rem, 7.5vw, 3rem);
+    line-height: 1.1;
+    font-weight: 600;
+  }
+  .hero .text-lg {
+    font-size: clamp(.95rem, 4vw, 1.2rem);
+    line-height: 1.6;
+  }
+  /* Smaller CTA button on small screens, revert at sm */
+  .hero .hero-cta .btn-primary-sm {
+    font-size: .9rem;
+    padding: .4rem .75rem;
+  }
+  @screen sm {
+    .hero .hero-cta .btn-primary-sm {
+      font-size: 1rem;
+      padding: .5rem 1rem;
+    }
+  }
+
+  /* After-hero spacing adjustments (nearly zero) */
+  .after-hero.section { @apply pt-0; }
+  @screen sm { .after-hero.section { @apply pt-2; } }
+  @screen lg { .after-hero.section { @apply pt-4; } }
 }

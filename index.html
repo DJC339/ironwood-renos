@@ -12,41 +12,7 @@
         fetchpriority="high" />
   <link rel="stylesheet" href="css/tw.css" />
   <style>
-    /* Minimal critical styles to stabilize hero before Tailwind loads */
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      text-align: center;
-      color: #fff;
-    }
-    .hero-cta {
-      position: absolute;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      bottom: 2.5rem; /* matches bottom-10 */
-    }
-    /* Minimal base + text sizing to match Tailwind above-the-fold */
-    body { margin: 0; background:#fff; color:#333; font-family: Arial, ui-sans-serif, system-ui, sans-serif; }
-    .text-hero-xl { font-size: 3rem; line-height: 1.1; font-weight: 600; }
-    .text-lg { font-size: 1.2rem; line-height: 1.6; }
-    .btn-primary-sm { display:inline-block; border-radius:5px; background:#6b4f3b; color:#fff; font-weight:600; padding:.5rem 1rem; }
-    /* Hero container */
-    .hero-wrap { position: relative; }
-    /* Match Code Forged approach: ensure hero has a stable minimum height before CSS loads */
-    .hero { min-height: 60vh; text-align: center; }
-    /* Layering to keep overlay text above image/overlay */
-    .hero-overlay { z-index: 20; }
-    .hero-cta { z-index: 20; }
-    /* Reduced motion support (no animations in critical CSS) */
-    /* Skip link */
+    /* Minimal inline styles only for accessibility */
     .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
     .skip-link:focus { position:absolute; left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem; background:#000; color:#fff; border-radius:4px; z-index:50; }
   </style>
@@ -89,26 +55,26 @@
       loading="eager"
     />
     <div class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
-  </div>
 
-  <!-- Centered text -->
-  <div class="hero-overlay absolute inset-0 flex flex-col justify-center items-center px-4">
-    <h1 class="text-hero-xl font-semibold mb-2 drop-shadow-lg">
-      Ironwood Renos
-    </h1>
-    <p class="text-lg drop-shadow-md">
-      Quality Renovations Built to Last
-    </p>
-  </div>
+    <!-- Centered text -->
+    <div class="hero-overlay absolute inset-0 flex flex-col justify-center items-center px-4">
+      <h1 class="text-hero-xl font-semibold mb-2 drop-shadow-lg">
+        Ironwood Renos
+      </h1>
+      <p class="text-lg drop-shadow-md">
+        Quality Renovations Built to Last
+      </p>
+    </div>
 
-  <!-- Smaller CTA anchored to bottom -->
-  <div class="hero-cta absolute left-0 right-0 flex justify-center bottom-10 sm:bottom-12 md:bottom-16">
-    <a
-      href="#contact"
-      class="btn-primary-sm"
-    >
-      Request a Quote
-    </a>
+    <!-- Smaller CTA anchored to bottom -->
+  <div class="hero-cta absolute left-0 right-0 flex justify-center">
+      <a
+        href="#contact"
+        class="btn-primary-sm"
+      >
+        Request a Quote
+      </a>
+    </div>
   </div>
 </section>
 
@@ -167,7 +133,7 @@
 
     <!-- Testimonials Section -->
   <section class="bg-bg-alt">
-    <div class="section text-center">
+    <div class="section after-hero text-center">
       <h2 class="section-title">What Clients Say</h2>
 
       <figure class="testimonial mb-8">

@@ -11,6 +11,8 @@
   --bg-alt: #fff8f0;
   --footer-bg: #222222;
   --footer-text: #cccccc;
+  /* Inline LQIP placeholder for hero (replace with real Base64 when available) */
+  --hero-lqip: url("data:image/webp;base64,UklGRlYCAABXRUJQVlA4IEoCAADQDACdASpQACEAPwFmq08rJSOmtVZoAWAgCWIAsR/Bf+a3a7ot7v3l9VoZ8Js6/TFNFIOiBS0tmCqpbF05GY/rAtTHa8KqA99ohvBnfcOrOnCDkyE5nDnk5Xw6RQioaGQUsbG2Z3HAm7e1js7XugAA/iBGqFowkUYVraA0hdE+b6exVoHnDeNRkHY0iDneAL7N5uqJDAOp3yB47jBXQZIjpsFt8ixl1tvdgAkYR2P7ycclEY3imxPjwjbgh0mn+zViKPZo2TGD3Qaz0+RY0HXGpN6+TGkevUYZgnpFu5/ZxaEbWllVWt0OEyUgib0rMFNXOV0GI40Qn0A28z4GgVCdfp+OR14Bm4o3Uvk8QAQaiBWKIzBmYmZrdMov4Yii+DHT60RQHxoZ2ZdD0Kd/j/ZbNuW5JhTc54hw4/lTtC31eAdNY+pOjbaWtANgUqNG9rUaSI8iOni9xdUVZPKuHSOc3PA+Iqx9wjsYhWK/iwaRpW7GMUVNjxJIeV0Ixrb3oKiwpLBVaL3k6Y1aB3Ub8Aemx1j8OGS/mH6MceQwxZjIto1zXv4CkCEYukv70IrP0iCxPcMdzaWdAelq2axwUEemkgN51Jb2hwVJ8Bwcj7NNUtU0LxnGMZVAtPZWtE3jk8RuGVuimQIfuBHtsYOYqkHPBIuoQkuk9V3626Yd/WrKTBXSA8n5Fy9r6MG9SS0BzL7gGgfR+uRnH/GyT0+EwKr79KZuiu2sRN6SLrydKp4lhOOfKDwThbo43eW7fEEa4IUiBXQIAJDSAAAA");
 
   --radius-sm: 5px;
   --radius-md: 8px;
@@ -60,7 +62,7 @@ h3 { font-size: 1.125rem; }
 
 /* Hero */
 .hero { position: relative; color: #fff; text-align: center; }
-.hero-wrap { position: relative; width: 100%; aspect-ratio: 12 / 5; max-height: 100vh; overflow: hidden; }
+.hero-wrap { position: relative; width: 100%; aspect-ratio: 12 / 5; max-height: 100vh; overflow: hidden; background: var(--hero-lqip) center/cover no-repeat; }
 .hero-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .hero-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
 .hero-overlay {
@@ -70,6 +72,10 @@ h3 { font-size: 1.125rem; }
 .hero h1 { margin: 0 0 .5rem; font-weight: 600; font-size: clamp(1.875rem, 6vw, 3rem); line-height: 1.1; text-shadow: 0 2px 8px rgba(0,0,0,.4); }
 .hero p { margin: 0; font-size: clamp(1rem, 2.6vw, 1.2rem); text-shadow: 0 1px 6px rgba(0,0,0,.35); }
 .hero-cta { position: absolute; left: 0; right: 0; bottom: 1rem; display: flex; justify-content: center; }
+
+/* Hero image fade-in (JS-enhanced only) */
+.js .hero-img { opacity: 0; transition: opacity .6s ease; will-change: opacity; }
+.js .hero-img.is-loaded { opacity: 1; }
 
 /* Buttons */
 .btn-primary-sm {
@@ -139,3 +145,4 @@ footer { background: var(--footer-bg); color: var(--footer-text); font-size: .95
   .container { max-width: none; padding: 0; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 90%; }
 }
+

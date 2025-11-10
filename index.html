@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -20,40 +20,80 @@
     fetchpriority="high"
   />
 
-  <!-- Critical CSS (banner + hero scaffold to avoid white flash) -->
+  <!-- Inline critical CSS to eliminate initial white flash (banner + hero scaffold only) -->
   <style>
-    html{scroll-behavior:smooth}
-    body{margin:0;background:#000;color:#fff;font-family:Arial,ui-sans-serif,system-ui,sans-serif;line-height:1.6}
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #000; /* dark fallback matches hero */
+      color: #fff;
+      font-family: Arial, ui-sans-serif, system-ui, sans-serif;
+      line-height: 1.6;
+    }
 
-    /* Demo banner */
-    .notice-banner{
-      background:#222;color:#fff;text-align:center;
-      padding:.5rem 1rem;font-size:.9rem;letter-spacing:.5px
+    /* Demo banner (so it doesn't FOUC) */
+    .notice-banner {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
     }
-    .notice-banner a{color:#facc15;text-decoration:none}
+    .notice-banner a { color: #facc15; text-decoration: none; }
 
-    /* Hero shell: non-white fallback + reserved space */
-    .hero{position:relative;color:#fff;text-align:center;background:#111}
-    .hero-wrap{
-      position:relative;width:100%;max-height:100vh;
-      aspect-ratio:12/5;overflow:hidden
+    /* Hero shell with instant LQIP background */
+    .hero { position: relative; color: #fff; text-align: center; background: #111; }
+    .hero-wrap {
+      position: relative; width: 100%; max-height: 100vh;
+      aspect-ratio: 12 / 5; overflow: hidden;
+      /* Lightweight inline SVG gradient as LQIP (fast first paint) */
+      background:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"1200\" height=\"500\" preserveAspectRatio=\"none\"><defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"%2324201d\"/><stop offset=\"100%\" stop-color=\"%235a3f30\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23g)\"/></svg>')
+        center/cover no-repeat;
     }
-    .hero-wrap>img{display:block;width:100%;height:100%;object-fit:cover}
-    .hero-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.4)}
-    .hero-overlay{
-      position:absolute;inset:0;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;padding:0 1rem
+    .hero-wrap > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .hero-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.40); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 0 1rem;
     }
-    .hero h1{margin:0 0 .5rem;font-weight:600;font-size:clamp(1.875rem,6vw,3rem);line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.4)}
-    .hero p{margin:0;font-size:clamp(1rem,2.6vw,1.2rem);text-shadow:0 1px 6px rgba(0,0,0,.35)}
-    .hero-cta{position:absolute;left:0;right:0;bottom:1rem;display:flex;justify-content:center}
-    .btn-primary-sm{
-      display:inline-block;background:#6b4f3b;color:#fff;padding:.55rem 1rem;
-      border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,.05)
+    .hero h1 {
+      margin: 0 0 .5rem; font-weight: 600;
+      font-size: clamp(1.875rem, 6vw, 3rem); line-height: 1.1;
+      text-shadow: 0 2px 8px rgba(0,0,0,.4);
+    }
+    .hero p {
+      margin: 0; font-size: clamp(1rem, 2.6vw, 1.2rem);
+      text-shadow: 0 1px 6px rgba(0,0,0,.35);
+    }
+    .hero-cta {
+      position: absolute; left: 0; right: 0; bottom: 1rem;
+      display: flex; justify-content: center;
+    }
+
+    /* Small button used in hero & footer (kept here so CTA paints styled immediately) */
+    .btn-primary-sm {
+      display: inline-block; background: #6b4f3b; color: #fff;
+      padding: .55rem 1rem; border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      text-decoration: none;
+    }
+
+    /* Accessibility: skip link basic critical styles */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus {
+      position: absolute; left: 1rem; top: 1rem; width: auto; height: auto;
+      padding: .5rem .75rem; background: #000; color: #fff; border-radius: 4px; z-index: 50;
     }
   </style>
 
-  <!-- Full stylesheet -->
+  <!-- Enable JS-enhanced features (e.g., hero fade-in) -->
+  <script>document.documentElement.classList.add('js');</script>
+  <!-- Warm cache without async swap -->
+  <link rel="preload" as="style" href="css/style.css" />
+  <!-- Full stylesheet for complete layout & sections -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -82,6 +122,7 @@
             images/ironwood-renos-banner.webp 1920w"
           sizes="100vw"
           alt=""
+          class="hero-img"
           width="1920"
           height="800"
           fetchpriority="high"
@@ -177,5 +218,8 @@
       <a href="#" class="btn-primary-sm" aria-disabled="true" tabindex="-1">Contact Us</a>
     </div>
   </footer>
+  <script defer src="js/main.js"></script>
 </body>
 </html>
+
+

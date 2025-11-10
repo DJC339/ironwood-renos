@@ -6,17 +6,15 @@ This documents the successful LQIP setup used to avoid the white flash before th
 
 - CSS variable: `--hero-lqip` in `css/style.css` holds a tiny inline image (data URI).
 - Instant paint: `.hero-wrap` uses `background: var(--hero-lqip) center/cover no-repeat;` so the hero area shows immediately.
-- Real image: The hero `<img>` still loads eagerly with `fetchpriority="high"`, responsive `srcset/sizes`, and overlays the LQIP.
-- Smooth reveal: A light JS enhancement adds `is-loaded` to the hero image to fade opacity from 0 → 1 when ready.
+- Real image: The hero `<img>` still loads eagerly with `fetchpriority="high"` and overlays the LQIP (no JS fade; image appears ASAP).
 - Stylesheet loading (stable): We use a safe warm‑cache pattern:
   - `<link rel="preload" as="style" href="css/style.css">` followed by
   - `<link rel="stylesheet" href="css/style.css">`
   This avoids the onload‑swap flicker while still warming the cache.
 
 Files involved
-- `css/style.css`: Defines `--hero-lqip` and the `.js .hero-img` fade‑in rules.
-- `index.html`: Adds the `.hero-img` class to the hero `<img>`, sets the `.js` class on `<html>`, and includes the safe preload + normal stylesheet links.
-- `js/main.js`: Adds `is-loaded` when the image is decoded (and fail‑open on error).
+- `css/style.css`: Defines `--hero-lqip` and hero layout styles (no JS fade required).
+- `index.html`: Preloads the hero image, includes the safe preload + normal stylesheet links.
 
 ## Generate a Real LQIP (WebP) with sharp‑cli
 
@@ -65,6 +63,7 @@ $dataUri | Set-Clipboard
 - Quotes: Use straight quotes ("), not curly quotes.
 - Dev server flicker: Live Server + disabled cache can exaggerate flashes. The safe preload + normal link pattern prevents FOUC on normal loads.
 - Cleanup: You can delete `tmp/` after verifying.
+- Fade‑in is optional: For best performance and simplicity, we chose to show the hero image immediately (no JS fade). If desired, a short, motion‑aware fade can be added later as a purely aesthetic enhancement.
 
 ## Rollback
 

@@ -139,4 +139,3 @@ footer { background: var(--footer-bg); color: var(--footer-text); font-size: .95
   .container { max-width: none; padding: 0; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 90%; }
 }
-

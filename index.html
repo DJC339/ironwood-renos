@@ -2,13 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ironwood Renos</title>
 
-  <link rel="preload" as="image" href="images/ironwood-renos-banner.webp"
-        imagesrcset="images/ironwood-renos-banner-800.webp 800w, images/ironwood-renos-banner-1200.webp 1200w, images/ironwood-renos-banner-1600.webp 1600w, images/ironwood-renos-banner.webp 1920w"
-        imagesizes="100vw"
-        fetchpriority="high" />
+  <!-- Preload hero (matches img src/srcset exactly) -->
+  <link
+    rel="preload"
+    as="image"
+    type="image/webp"
+    href="images/ironwood-renos-banner.webp"
+    imagesrcset="
+      images/ironwood-renos-banner-800.webp 800w,
+      images/ironwood-renos-banner-1200.webp 1200w,
+      images/ironwood-renos-banner-1600.webp 1600w,
+      images/ironwood-renos-banner.webp 1920w"
+    imagesizes="100vw"
+    fetchpriority="high"
+  />
+
+  <!-- Critical CSS (banner + hero scaffold to avoid white flash) -->
+  <style>
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#000;color:#fff;font-family:Arial,ui-sans-serif,system-ui,sans-serif;line-height:1.6}
+
+    /* Demo banner */
+    .notice-banner{
+      background:#222;color:#fff;text-align:center;
+      padding:.5rem 1rem;font-size:.9rem;letter-spacing:.5px
+    }
+    .notice-banner a{color:#facc15;text-decoration:none}
+
+    /* Hero shell: non-white fallback + reserved space */
+    .hero{position:relative;color:#fff;text-align:center;background:#111}
+    .hero-wrap{
+      position:relative;width:100%;max-height:100vh;
+      aspect-ratio:12/5;overflow:hidden
+    }
+    .hero-wrap>img{display:block;width:100%;height:100%;object-fit:cover}
+    .hero-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.4)}
+    .hero-overlay{
+      position:absolute;inset:0;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;padding:0 1rem
+    }
+    .hero h1{margin:0 0 .5rem;font-weight:600;font-size:clamp(1.875rem,6vw,3rem);line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+    .hero p{margin:0;font-size:clamp(1rem,2.6vw,1.2rem);text-shadow:0 1px 6px rgba(0,0,0,.35)}
+    .hero-cta{position:absolute;left:0;right:0;bottom:1rem;display:flex;justify-content:center}
+    .btn-primary-sm{
+      display:inline-block;background:#6b4f3b;color:#fff;padding:.55rem 1rem;
+      border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,.05)
+    }
+  </style>
+
+  <!-- Full stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -17,137 +62,120 @@
 
   <!-- Demo Notice Banner -->
   <div class="notice-banner">
-    Note: This is a <strong>demo portfolio site</strong> built by 
+    Note: This is a <strong>demo portfolio site</strong> built by
     <a href="https://www.codeforgeddigital.ca" target="_blank" rel="noopener noreferrer" aria-label="Code Forged Digital (opens in a new tab)">
       Code Forged Digital Inc.
     </a>
     Ironwood Renos is not a real business.
   </div>
 
-<!-- Hero Section -->
-<main id="main-content">
-<section class="hero">
-  <!-- Full image with intrinsic dimensions to reserve space -->
-  <div class="hero-wrap">
-    <img
-      src="images/ironwood-renos-banner.webp"
-      srcset="images/ironwood-renos-banner-800.webp 800w, images/ironwood-renos-banner-1200.webp 1200w, images/ironwood-renos-banner-1600.webp 1600w, images/ironwood-renos-banner.webp 1920w"
-      sizes="100vw"
-      alt=""
-      width="1920"
-      height="800"
-      fetchpriority="high"
-      loading="eager"
-    />
-    <div class="hero-backdrop" aria-hidden="true"></div>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-wrap">
+        <img
+          src="images/ironwood-renos-banner.webp"
+          srcset="
+            images/ironwood-renos-banner-800.webp 800w,
+            images/ironwood-renos-banner-1200.webp 1200w,
+            images/ironwood-renos-banner-1600.webp 1600w,
+            images/ironwood-renos-banner.webp 1920w"
+          sizes="100vw"
+          alt=""
+          width="1920"
+          height="800"
+          fetchpriority="high"
+          loading="eager"
+        />
+        <div class="hero-backdrop" aria-hidden="true"></div>
 
-    <!-- Centered text -->
-    <div class="hero-overlay">
-      <h1>
-        Ironwood Renos
-      </h1>
-      <p>
-        Quality Renovations Built to Last
-      </p>
-    </div>
-
-    <!-- Smaller CTA anchored to bottom -->
-  <div class="hero-cta">
-      <a
-        href="#contact"
-        class="btn-primary-sm"
-      >
-        Request a Quote
-      </a>
-    </div>
-  </div>
-</section>
-
-  <!-- Services Section -->
-  <section class="bg-bg-light">
-    <div class="section">
-      <h2 class="section-title">Our Services</h2>
-
-      <div class="cards-grid">
-        <!-- Card -->
-        <div class="card">
-          <h3>Kitchen &amp; Bath Renovations</h3>
-          <p>Custom cabinetry, tile work, and full remodels designed to add beauty and functionality to your home.</p>
+        <!-- Centered text -->
+        <div class="hero-overlay">
+          <h1>Ironwood Renos</h1>
+          <p>Quality Renovations Built to Last</p>
         </div>
 
-        <!-- Card -->
-        <div class="card">
-          <h3>Basement Finishing</h3>
-          <p>Transform your basement into a comfortable living space or entertainment area.</p>
-        </div>
-
-        <!-- Card -->
-        <div class="card">
-          <h3>Decks &amp; Outdoor Structures</h3>
-          <p>Durable and beautiful decks, pergolas, and outdoor additions built for Canadian weather.</p>
+        <!-- Smaller CTA anchored to bottom -->
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary-sm">Request a Quote</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Gallery Section -->
-  <section>
-    <div class="section">
-      <h2 class="section-title">Featured Projects</h2>
+    <!-- Services Section -->
+    <section class="bg-bg-light">
+      <div class="section container">
+        <h2 class="section-title">Our Services</h2>
 
-      <div class="gallery-grid">
-        <img src="images/project1.webp" alt="Cedar Deck Project" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="250" height="202" />
-        <img src="images/project2.webp" alt="Modern Bathroom Remodel" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="244" height="206" />
-        <img src="images/project3.webp" alt="Open-Concept Kitchen" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="275" height="183" />
-        <img src="images/project4.webp" alt="Basement Lounge" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="202" height="250" />
+        <div class="cards-grid">
+          <div class="card">
+            <h3>Kitchen &amp; Bath Renovations</h3>
+            <p>Custom cabinetry, tile work, and full remodels designed to add beauty and functionality to your home.</p>
+          </div>
+          <div class="card">
+            <h3>Basement Finishing</h3>
+            <p>Transform your basement into a comfortable living space or entertainment area.</p>
+          </div>
+          <div class="card">
+            <h3>Decks &amp; Outdoor Structures</h3>
+            <p>Durable and beautiful decks, pergolas, and outdoor additions built for Canadian weather.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Gallery Section -->
+    <section>
+      <div class="section container">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="gallery-grid">
+          <img src="images/project1.webp" alt="Cedar Deck Project" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="250" height="202" />
+          <img src="images/project2.webp" alt="Modern Bathroom Remodel" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="244" height="206" />
+          <img src="images/project3.webp" alt="Open-Concept Kitchen" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="275" height="183" />
+          <img src="images/project4.webp" alt="Basement Lounge" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="202" height="250" />
+        </div>
+      </div>
+    </section>
 
     <!-- Testimonials Section -->
-  <section class="bg-bg-alt">
-    <div class="section after-hero">
-      <h2 class="section-title">What Clients Say</h2>
+    <section class="bg-bg-alt">
+      <div class="section container after-hero">
+        <h2 class="section-title">What Clients Say</h2>
 
-      <figure class="testimonial">
-        <blockquote>
-          <span aria-hidden="true">"</span>
-          <p>Ironwood completely transformed our kitchen - their work is outstanding!</p>
-        </blockquote>
-        <figcaption>- Sarah L., Kingston</figcaption>
-      </figure>
+        <figure class="testimonial">
+          <blockquote>
+            <span aria-hidden="true">"</span>
+            <p>Ironwood completely transformed our kitchen - their work is outstanding!</p>
+          </blockquote>
+          <figcaption>- Sarah L., Kingston</figcaption>
+        </figure>
 
-      <figure class="testimonial">
-        <blockquote>
-          <span aria-hidden="true">"</span>
-          <p>Reliable, clean, and professional. Our new family room looks fantastic.</p>
-        </blockquote>
-        <figcaption>- Mark R., Napanee</figcaption>
-      </figure>
+        <figure class="testimonial">
+          <blockquote>
+            <span aria-hidden="true">"</span>
+            <p>Reliable, clean, and professional. Our new family room looks fantastic.</p>
+          </blockquote>
+          <figcaption>- Mark R., Napanee</figcaption>
+        </figure>
 
-      <figure class="testimonial">
-        <blockquote>
-          <span aria-hidden="true">"</span>
-          <p>They treated our home like their own. Highly recommended.</p>
-        </blockquote>
-        <figcaption>- Laura P., Amherstview</figcaption>
-      </figure>
-    </div>
-  </section>
-
+        <figure class="testimonial">
+          <blockquote>
+            <span aria-hidden="true">"</span>
+            <p>They treated our home like their own. Highly recommended.</p>
+          </blockquote>
+          <figcaption>- Laura P., Amherstview</figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
+
   <!-- Footer -->
   <footer>
     <div id="contact" class="container footer-bar">
       <p>&copy; 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
-
-      <a href="#" class="btn-primary-sm" aria-disabled="true" tabindex="-1">
-        Contact Us
-      </a>
+      <a href="#" class="btn-primary-sm" aria-disabled="true" tabindex="-1">Contact Us</a>
     </div>
   </footer>
 </body>
 </html>
-
-
-

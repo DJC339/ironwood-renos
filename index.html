@@ -5,69 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ironwood Renos</title>
 
-  <!-- Tailwind build -->
   <link rel="preload" as="image" href="images/ironwood-renos-banner.webp"
         imagesrcset="images/ironwood-renos-banner-800.webp 800w, images/ironwood-renos-banner-1200.webp 1200w, images/ironwood-renos-banner-1600.webp 1600w, images/ironwood-renos-banner.webp 1920w"
         imagesizes="100vw"
         fetchpriority="high" />
-  <link rel="stylesheet" href="css/tw.css" />
-  <style>
-    /* Minimal inline styles only for accessibility */
-    .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus { position:absolute; left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem; background:#000; color:#fff; border-radius:4px; z-index:50; }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Demo Notice Banner -->
-  <div style="
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    font-family: Arial, sans-serif;
-  ">
+  <div class="notice-banner">
     Note: This is a <strong>demo portfolio site</strong> built by 
-    <a href="https://www.codeforgeddigital.ca" target="_blank" rel="noopener noreferrer" style="color:#facc15; text-decoration:none;" aria-label="Code Forged Digital (opens in a new tab)">
+    <a href="https://www.codeforgeddigital.ca" target="_blank" rel="noopener noreferrer" aria-label="Code Forged Digital (opens in a new tab)">
       Code Forged Digital Inc.
     </a>
     Ironwood Renos is not a real business.
   </div>
 
-<!-- Hero Section (Tailwind only, compact CTA) -->
+<!-- Hero Section -->
 <main id="main-content">
-<section class="hero relative text-white text-center">
+<section class="hero">
   <!-- Full image with intrinsic dimensions to reserve space -->
-  <div class="hero-wrap w-full aspect-[12/5] max-h-screen overflow-hidden">
+  <div class="hero-wrap">
     <img
       src="images/ironwood-renos-banner.webp"
       srcset="images/ironwood-renos-banner-800.webp 800w, images/ironwood-renos-banner-1200.webp 1200w, images/ironwood-renos-banner-1600.webp 1600w, images/ironwood-renos-banner.webp 1920w"
       sizes="100vw"
       alt=""
-      class="w-full h-full object-cover block"
       width="1920"
       height="800"
       fetchpriority="high"
       loading="eager"
     />
-    <div class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
+    <div class="hero-backdrop" aria-hidden="true"></div>
 
     <!-- Centered text -->
-    <div class="hero-overlay absolute inset-0 flex flex-col justify-center items-center px-4">
-      <h1 class="text-hero-xl font-semibold mb-2 drop-shadow-lg">
+    <div class="hero-overlay">
+      <h1>
         Ironwood Renos
       </h1>
-      <p class="text-lg drop-shadow-md">
+      <p>
         Quality Renovations Built to Last
       </p>
     </div>
 
     <!-- Smaller CTA anchored to bottom -->
-  <div class="hero-cta absolute left-0 right-0 flex justify-center">
+  <div class="hero-cta">
       <a
         href="#contact"
         class="btn-primary-sm"
@@ -80,25 +65,25 @@
 
   <!-- Services Section -->
   <section class="bg-bg-light">
-    <div class="section text-center">
+    <div class="section">
       <h2 class="section-title">Our Services</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+      <div class="cards-grid">
         <!-- Card -->
         <div class="card">
-          <h3 class="text-primary font-semibold mb-2">Kitchen &amp; Bath Renovations</h3>
+          <h3>Kitchen &amp; Bath Renovations</h3>
           <p>Custom cabinetry, tile work, and full remodels designed to add beauty and functionality to your home.</p>
         </div>
 
         <!-- Card -->
         <div class="card">
-          <h3 class="text-primary font-semibold mb-2">Basement Finishing</h3>
+          <h3>Basement Finishing</h3>
           <p>Transform your basement into a comfortable living space or entertainment area.</p>
         </div>
 
         <!-- Card -->
         <div class="card">
-          <h3 class="text-primary font-semibold mb-2">Decks &amp; Outdoor Structures</h3>
+          <h3>Decks &amp; Outdoor Structures</h3>
           <p>Durable and beautiful decks, pergolas, and outdoor additions built for Canadian weather.</p>
         </div>
       </div>
@@ -110,7 +95,7 @@
     <div class="section">
       <h2 class="section-title">Featured Projects</h2>
 
-      <div class="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div class="gallery-grid">
         <picture>
           <source srcset="images/project1.webp" type="image/webp" />
           <img src="images/project1.jpg" alt="Cedar Deck Project" class="img-tile" loading="lazy" decoding="async" width="250" height="202" />
@@ -133,49 +118,46 @@
 
     <!-- Testimonials Section -->
   <section class="bg-bg-alt">
-    <div class="section after-hero text-center">
+    <div class="section after-hero">
       <h2 class="section-title">What Clients Say</h2>
 
-      <figure class="testimonial mb-8">
-        <blockquote class="italic">
-          <span class="align-top text-primary text-2xl mr-1" aria-hidden="true">“</span>
-          <p>Ironwood completely transformed our kitchen — their work is outstanding!</p>
+      <figure class="testimonial">
+        <blockquote>
+          <span aria-hidden="true">"</span>
+          <p>Ironwood completely transformed our kitchen - their work is outstanding!</p>
         </blockquote>
-        <figcaption class="not-italic text-muted block mt-2">— Sarah L., Kingston</figcaption>
-      </figure>
-
-      <figure class="testimonial mb-8">
-        <blockquote class="italic">
-          <span class="align-top text-primary text-2xl mr-1" aria-hidden="true">“</span>
-          <p>Reliable, clean, and professional. Our new family room looks fantastic.</p>
-        </blockquote>
-        <figcaption class="not-italic text-muted block mt-2">— Mark R., Napanee</figcaption>
+        <figcaption>- Sarah L., Kingston</figcaption>
       </figure>
 
       <figure class="testimonial">
-        <blockquote class="italic">
-          <span class="align-top text-primary text-2xl mr-1" aria-hidden="true">“</span>
+        <blockquote>
+          <span aria-hidden="true">"</span>
+          <p>Reliable, clean, and professional. Our new family room looks fantastic.</p>
+        </blockquote>
+        <figcaption>- Mark R., Napanee</figcaption>
+      </figure>
+
+      <figure class="testimonial">
+        <blockquote>
+          <span aria-hidden="true">"</span>
           <p>They treated our home like their own. Highly recommended.</p>
         </blockquote>
-        <figcaption class="not-italic text-muted block mt-2">— Laura P., Amherstview</figcaption>
+        <figcaption>- Laura P., Amherstview</figcaption>
       </figure>
     </div>
   </section>
 
   </main>
   <!-- Footer -->
-  <footer class="bg-footer-bg text-footer-text text-sm">
-    <div class="container py-5 flex flex-col sm:flex-row items-center justify-between">
+  <footer>
+    <div id="contact" class="container footer-bar">
       <p>&copy; 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
 
-      <a href="#" class="mt-4 sm:mt-0 btn-primary-sm" aria-disabled="true" tabindex="-1">
+      <a href="#" class="btn-primary-sm" aria-disabled="true" tabindex="-1">
         Contact Us
       </a>
     </div>
   </footer>
-
-  
-
 </body>
 </html>
 

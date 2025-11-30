@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Ironwood Renos</title>
+  <meta name="description" content="Contact Ironwood Renos for renovation estimates or consultations." />
+  <link rel="canonical" href="https://ironwoodrenos.netlify.app/contact.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#6b4f3b" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ironwoodrenos.netlify.app/contact.html" />
+  <meta property="og:title" content="Contact | Ironwood Renos" />
+  <meta property="og:description" content="Contact Ironwood Renos for renovation quotes or consultations." />
+  <meta property="og:image" content="https://ironwoodrenos.netlify.app/images/ironwood-renos-banner-1200.webp" />
+  <meta property="og:site_name" content="Ironwood Renos" />
+  <meta property="og:image:alt" content="Ironwood Renos renovation hero image" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact | Ironwood Renos" />
+  <meta name="twitter:description" content="Contact Ironwood Renos for renovation quotes or consultations." />
+  <meta name="twitter:image" content="https://ironwoodrenos.netlify.app/images/ironwood-renos-banner-1200.webp" />
+
+  <link rel="preload" as="style" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="notice-banner" role="note">
+    Note: This is a <strong>demo portfolio site</strong> built by
+    <a href="https://www.codeforgeddigital.ca" target="_blank" rel="noopener noreferrer" aria-label="Code Forged Digital (opens in a new tab)">
+      Code Forged Digital Inc.
+    </a>
+    Ironwood Renos is not a real business.
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button id="menu-btn" class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Start your renovation conversation</h1>
+        <p>Send us the basics about your project and we'll reply within one business day.</p>
+      </div>
+    </section>
+
+    <section class="section container contact-grid">
+      <div class="contact-card">
+        <h2>Reach out directly</h2>
+        <ul class="info-list">
+          <li>
+            <span>Phone</span>
+            <a href="tel:16135550110">613-555-0110</a>
+          </li>
+          <li>
+            <span>Email</span>
+            <a href="mailto:hello@ironwoodrenos.ca">hello@ironwoodrenos.ca</a>
+          </li>
+          <li>
+            <span>Service area</span>
+            Eastern Ontario (Kingston, Napanee, Amherstview)
+          </li>
+        </ul>
+        <p>Office hours: Monday-Friday, 8am-5pm.</p>
+      </div>
+
+      <form action="thank-you.html" method="get" class="form-card">
+        <label for="contact-name">
+          <span>Name</span>
+          <input id="contact-name" type="text" name="name" autocomplete="name" required />
+        </label>
+
+        <label for="contact-email">
+          <span>Email</span>
+          <input id="contact-email" type="email" name="email" autocomplete="email" required />
+        </label>
+
+        <label for="contact-project-type">
+          <span>Project type</span>
+          <select id="contact-project-type" name="project-type" required>
+            <option value="">Select an option</option>
+            <option>Kitchen or Bath</option>
+            <option>Basement</option>
+            <option>Deck or Exterior</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label for="contact-message">
+          <span>Message</span>
+          <textarea id="contact-message" name="message" rows="4" required></textarea>
+        </label>
+
+        <button type="submit" class="btn-primary-sm">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-bar">
+      <p>&copy; <span id="year"></span> Ironwood Renos. Portfolio project by Code Forged Digital.</p>
+      <a href="https://www.codeforgeddigital.ca/" class="footer-logo" target="_blank" rel="noopener noreferrer">
+        <img src="images/CodeForgedDigitalLogo.webp" alt="Code Forged Digital" loading="lazy" decoding="async" />
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
+
+
+
+

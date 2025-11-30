@@ -1,9 +1,30 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ironwood Renos</title>
+  <title>Ironwood Renos | Renovation & Construction Portfolio</title>
+  <meta name="description" content="Ironwood Renos is a demo renovation portfolio showcasing kitchen, bath, basement, and outdoor projects for homeowners in Eastern Ontario." />
+  <link rel="canonical" href="https://ironwoodrenos.netlify.app/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#6b4f3b" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ironwoodrenos.netlify.app/" />
+  <meta property="og:title" content="Ironwood Renos | Renovation & Construction Portfolio" />
+  <meta property="og:description" content="Browse Ironwood Renos projects, services, and testimonials from happy homeowners." />
+  <meta property="og:image" content="https://ironwoodrenos.netlify.app/images/ironwood-renos-banner-1200.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:site_name" content="Ironwood Renos" />
+  <meta property="og:image:alt" content="Ironwood Renos renovation hero image" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ironwood Renos | Renovation & Construction Portfolio" />
+  <meta name="twitter:description" content="Browse Ironwood Renos projects, services, and testimonials from happy homeowners." />
+  <meta name="twitter:image" content="https://ironwoodrenos.netlify.app/images/ironwood-renos-banner-1200.webp" />
 
   <!-- Preload hero (matches img src/srcset exactly) -->
   <link
@@ -68,9 +89,9 @@
       margin: 0; font-size: clamp(1rem, 2.6vw, 1.2rem);
       text-shadow: 0 1px 6px rgba(0,0,0,.35);
     }
-    .hero-cta {
-      position: absolute; left: 0; right: 0; bottom: 1rem;
-      display: flex; justify-content: center;
+    .actions {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: .75rem; margin-top: 1.5rem;
     }
 
     /* Small button used in hero & footer (kept here so CTA paints styled immediately) */
@@ -93,19 +114,57 @@
   <link rel="preload" as="style" href="css/style.css" />
   <!-- Full stylesheet for complete layout & sections -->
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Ironwood Renos",
+      "url": "https://ironwoodrenos.netlify.app/",
+      "image": "https://ironwoodrenos.netlify.app/images/ironwood-renos-banner-1200.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kingston",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "areaServed": "Eastern Ontario",
+      "sameAs": ["https://www.codeforgeddigital.ca"]
+    }
+  </script>
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Demo Notice Banner -->
-  <div class="notice-banner">
+  <div class="notice-banner" role="note">
     Note: This is a <strong>demo portfolio site</strong> built by
     <a href="https://www.codeforgeddigital.ca" target="_blank" rel="noopener noreferrer" aria-label="Code Forged Digital (opens in a new tab)">
       Code Forged Digital Inc.
     </a>
     Ironwood Renos is not a real business.
   </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button id="menu-btn" class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main id="main-content">
     <!-- Hero Section -->
@@ -119,7 +178,7 @@
             images/ironwood-renos-banner-1600.webp 1600w,
             images/ironwood-renos-banner.webp 1920w"
           sizes="100vw"
-          alt=""
+          alt="Wood renovation project highlighting Ironwood Renos craftsmanship"
           class="hero-img"
           width="1920"
           height="800"
@@ -131,92 +190,115 @@
         <!-- Centered text -->
         <div class="hero-overlay">
           <h1>Ironwood Renos</h1>
-          <p>Quality Renovations Built to Last</p>
-        </div>
-
-        <!-- Smaller CTA anchored to bottom -->
-        <div class="hero-cta">
-          <a href="#contact" class="btn-primary-sm">Request a Quote</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="bg-bg-light">
-      <div class="section container">
-        <h2 class="section-title">Our Services</h2>
-
-        <div class="cards-grid">
-          <div class="card">
-            <h3>Kitchen &amp; Bath Renovations</h3>
-            <p>Custom cabinetry, tile work, and full remodels designed to add beauty and functionality to your home.</p>
-          </div>
-          <div class="card">
-            <h3>Basement Finishing</h3>
-            <p>Transform your basement into a comfortable living space or entertainment area.</p>
-          </div>
-          <div class="card">
-            <h3>Decks &amp; Outdoor Structures</h3>
-            <p>Durable and beautiful decks, pergolas, and outdoor additions built for Canadian weather.</p>
+          <p>Quality renovations for kitchens, basements, and outdoor spaces&mdash;all in one simple, scannable page.</p>
+          <div class="actions">
+            <a href="contact.html" class="btn-primary-sm">Request a Quote</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section>
-      <div class="section container">
-        <h2 class="section-title">Featured Projects</h2>
-
-        <div class="gallery-grid">
-          <img src="images/project1.webp" alt="Cedar Deck Project" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="250" height="202" />
-          <img src="images/project2.webp" alt="Modern Bathroom Remodel" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="244" height="206" />
-          <img src="images/project3.webp" alt="Open-Concept Kitchen" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="275" height="183" />
-          <img src="images/project4.webp" alt="Basement Lounge" class="img-tile" loading="lazy" decoding="async" fetchpriority="low" width="202" height="250" />
+    <section class="section container intro" id="services">
+      <h2 class="section-title">Small renovation projects done right</h2>
+      <p>Ironwood Renos focuses on bite-sized projects that still demand premium craftsmanship. Kitchens, basements, and decks all get the same attention to detail.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Kitchen and bath</h3>
+          <p>Cabinet updates, tile, and fixtures that refresh the heart of your home without a six-month timeline.</p>
+        </div>
+        <div class="card">
+          <h3>Basement finishing</h3>
+          <p>Create a media room or office in weeks with moisture-safe materials and warm lighting plans.</p>
+        </div>
+        <div class="card">
+          <h3>Outdoor builds</h3>
+          <p>Durable decks and pergolas that extend your living space and survive Canadian winters.</p>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="bg-bg-alt">
+    <section class="section container" id="gallery">
+      <h2 class="section-title">Renovations in focus</h2>
+      <p style="text-align: center;">Swipe through recent projects for a quick view of finishes, scope, and locations&mdash;no extra pages needed.</p>
+      <div class="gallery-grid gallery-grid--detailed">
+        <figure>
+          <img src="images/project1.webp" alt="Cedar deck with built-in seating and string lights" loading="lazy" decoding="async" width="250" height="202" />
+          <figcaption>Cedar deck with built-in seating and matte black railings, Kingston.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/project2.webp" alt="Modern bathroom remodel with walk-in shower and glass enclosure" loading="lazy" decoding="async" width="244" height="206" />
+          <figcaption>Bathroom remodel featuring a curb-less shower, brass fixtures, and heated floors.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/project3.webp" alt="Open-concept kitchen showing white cabinets and wooden island" loading="lazy" decoding="async" width="275" height="183" />
+          <figcaption>Kitchen remodel with custom maple island, quartz counters, and concealed storage.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/project4.webp" alt="Basement lounge with custom bar and accent lighting" loading="lazy" decoding="async" width="202" height="250" />
+          <figcaption>Basement lounge retrofit with custom bar millwork and hidden AV wiring.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="bg-bg-alt" id="testimonials">
       <div class="section container after-hero">
-        <h2 class="section-title">What Clients Say</h2>
+        <h2 class="section-title">Client testimonials</h2>
 
-        <figure class="testimonial">
-          <blockquote>
-            <span aria-hidden="true">"</span>
-            <p>Ironwood completely transformed our kitchen - their work is outstanding!</p>
-          </blockquote>
-          <figcaption>- Sarah L., Kingston</figcaption>
-        </figure>
+        <div class="testimonials-grid">
+          <figure class="testimonial">
+            <blockquote>
+              <span aria-hidden="true">"</span>
+              <p>Ironwood completely transformed our kitchen--their work is outstanding!</p>
+            </blockquote>
+            <figcaption>- Sarah L., Kingston</figcaption>
+          </figure>
 
-        <figure class="testimonial">
-          <blockquote>
-            <span aria-hidden="true">"</span>
-            <p>Reliable, clean, and professional. Our new family room looks fantastic.</p>
-          </blockquote>
-          <figcaption>- Mark R., Napanee</figcaption>
-        </figure>
+          <figure class="testimonial">
+            <blockquote>
+              <span aria-hidden="true">"</span>
+              <p>Reliable, clean, and professional. Our new family room looks fantastic.</p>
+            </blockquote>
+            <figcaption>- Mark R., Napanee</figcaption>
+          </figure>
 
-        <figure class="testimonial">
-          <blockquote>
-            <span aria-hidden="true">"</span>
-            <p>They treated our home like their own. Highly recommended.</p>
-          </blockquote>
-          <figcaption>- Laura P., Amherstview</figcaption>
-        </figure>
+          <figure class="testimonial">
+            <blockquote>
+              <span aria-hidden="true">"</span>
+              <p>They treated our home like their own. Highly recommended.</p>
+            </blockquote>
+            <figcaption>- Laura P., Amherstview</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container contact-blurb" id="cta">
+      <div class="contact-blurb__inner">
+        <h2>Ready to plan your project?</h2>
+        <p>Share a few details and we will reply with next steps, timelines, and a clear estimate.</p>
+        <div class="actions">
+          <a href="contact.html" class="btn-primary-sm">Contact Ironwood</a>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>
-    <div id="contact" class="container footer-bar">
-      <p>&copy; 2025 Ironwood Renos. Portfolio project by Code Forged Digital.</p>
-      <a href="#" class="btn-primary-sm" aria-disabled="true" tabindex="-1">Contact Us</a>
+  <footer id="contact">
+    <div class="container footer-bar">
+      <p>&copy; <span id="year"></span> Ironwood Renos. Portfolio project by Code Forged Digital.</p>
+      <a href="https://www.codeforgeddigital.ca/" class="footer-logo" target="_blank" rel="noopener noreferrer">
+        <img src="images/CodeForgedDigitalLogo.webp" alt="Code Forged Digital" loading="lazy" decoding="async" />
+      </a>
     </div>
   </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
+
+
+
+
 
 

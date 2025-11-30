@@ -286,6 +286,55 @@ h3 { font-size: 1.125rem; }
   color: var(--muted);
 }
 
+/* 404 page */
+.not-found {
+  position: relative;
+  background:
+    radial-gradient(circle at 16% 22%, rgba(107, 79, 59, 0.18), transparent 32%),
+    radial-gradient(circle at 82% 10%, rgba(107, 79, 59, 0.12), transparent 30%),
+    var(--bg-alt);
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 0;
+}
+.not-found__inner {
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem 1.75rem;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.not-found__code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(107, 79, 59, 0.1);
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.not-found h1 {
+  margin: 0 0 0.5rem;
+}
+.not-found p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+.not-found__actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
 /* Contact layout */
 .contact-grid { display: grid; gap: 1.5rem; }
 @media (min-width: 768px) { .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -358,6 +407,23 @@ footer { background: var(--footer-bg); color: var(--footer-text); font-size: .95
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.14),
     0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  background: transparent;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.footer-btn:hover,
+.footer-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 :target { scroll-margin-top: calc(var(--header-height) + 1rem); }
